@@ -48,11 +48,20 @@ def healthz():
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), max_results: int = 8):
     try:
+        # First attempt: full extraction (Android client) for duration/thumb, etc.
         query = f"ytsearch{max_results}:{q}"
-        with ydl() as y:
+        with ydl({"extract_flat": False}) as y:
             data = y.extract_info(query, download=False)
+        entries = (data.get("entries") or [])
+
+        # Fallback: flat extraction to at least get IDs/titles if strict mode returns nothing
+        if not entries:
+            with ydl({"extract_flat": True}) as y:
+                data2 = y.extract_info(query, download=False)
+            entries = (data2.get("entries") or [])
+
         items = []
-        for e in (data.get("entries") or []):
+        for e in entries:
             if not e:
                 continue
             items.append(SearchItem(
@@ -64,6 +73,7 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
         return {"results": items}
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"search_failed: {type(ex).__name__}: {ex}")
+
 
 @app.get("/resolve")
 def resolve(id: str, prefer: str = "720"):

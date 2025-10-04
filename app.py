@@ -85,4 +85,3 @@ def resolve(id: str, prefer: str = "720"):
         }
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"resolve_failed: {type(ex).__name__}: {ex}")
-

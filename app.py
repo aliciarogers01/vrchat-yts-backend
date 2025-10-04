@@ -1,10 +1,48 @@
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
-import yt_dlp
 import json, urllib.request, urllib.parse
+import yt_dlp
 
-import json, urllib.request, urllib.parse  # (keep if already added)
+app = FastAPI()
 
+# ---------- Models ----------
+class SearchItem(BaseModel):
+    id: str
+    title: str
+    duration: int
+    thumb: str
+
+# ---------- yt-dlp base options (for /resolve) ----------
+BASE_OPTS = {
+    "quiet": True,
+    "skip_download": True,
+    "nocheckcertificate": True,
+    "default_search": "ytsearch",
+    "noplaylist": True,
+    "geo_bypass": True,
+    "geo_bypass_country": "US",
+    # Pretend to be Android client to avoid web bot checks
+    "extractor_args": {
+        "youtube": {
+            "player_client": ["android"],
+            "player_skip": ["webpage"],
+        }
+    },
+    "http_headers": {
+        "User-Agent": (
+            "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36"
+        )
+    },
+}
+
+def ydl(extra=None):
+    opts = dict(BASE_OPTS)
+    if extra:
+        opts.update(extra)
+    return yt_dlp.YoutubeDL(opts)
+
+# ---------- Search mirrors ----------
 PIPED_BASES = [
     "https://piped.video",
     "https://pipedapi.kavin.rocks",
@@ -16,134 +54,114 @@ INVIDIOUS_BASES = [
     "https://invidious.projectsegfau.lt",
 ]
 
-@app.get("/search_debug")
-def search_debug(q: str = Query(..., min_length=2), max_results: int = 8):
-    """Debug search that shows which mirror responded and what it returned."""
-    headers = {"User-Agent": "Mozilla/5.0"}
-    tried = []
-
-    # try piped
-    for base in PIPED_BASES:
-        url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"
-        try:
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                data = json.loads(resp.read().decode("utf-8", "ignore"))
-            videos = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
-            return {
-                "source": f"piped:{base}",
-                "count": len(videos),
-                "sample": [v.get("title") for v in videos[:5]],
-            }
-        except Exception as ex:
-            tried.append({"piped": base, "error": f"{type(ex).__name__}: {ex}"})
-
-    # try invidious
-    for base in INVIDIOUS_BASES:
-        url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&type=video&region=US"
-        try:
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                data = json.loads(resp.read().decode("utf-8", "ignore"))
-            if isinstance(data, list) and data:
-                return {
-                    "source": f"invidious:{base}",
-                    "count": len(data),
-                    "sample": [v.get("title") for v in data[:5] if isinstance(v, dict)],
-                }
-        except Exception as ex:
-            tried.append({"invidious": base, "error": f"{type(ex).__name__}: {ex}"})
-
-    return {"source": "none", "count": 0, "tried": tried}
-
-
-app = FastAPI()
-
-class SearchItem(BaseModel):
-    id: str
-    title: str
-    duration: int
-    thumb: str
-
-BASE_OPTS = {
-    "quiet": True,
-    "skip_download": True,
-    "nocheckcertificate": True,
-    "default_search": "ytsearch",
-    "extract_flat": False,
-    "noplaylist": True,
-    "geo_bypass": True,
-    "geo_bypass_country": "US",
-    # Pretend to be Android client (helps avoid “sign in to confirm you’re not a bot”)
-    "extractor_args": {
-        "youtube": {
-            "player_client": ["android"],
-            "player_skip": ["webpage"]
-        }
-    },
-    "http_headers": {
-        "User-Agent": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36"
-    },
-}
-
-def ydl(extra=None):
-    opts = BASE_OPTS.copy()
-    if extra:
-        opts.update(extra)
-    return yt_dlp.YoutubeDL(opts)
-
+# ---------- Endpoints ----------
 @app.get("/")
 def root():
-    return {"ok": True, "endpoints": ["/healthz", "/search", "/resolve"]}
+    return {"ok": True, "endpoints": ["/healthz", "/search", "/search_debug", "/resolve"]}
 
 @app.get("/healthz")
 def healthz():
     return {"ok": True}
 
-# Use Piped (YouTube mirror API) for reliable search, then map to our schema
-PIPED_BASES = [
-    "https://piped.video",
-    "https://pipedapi.kavin.rocks",
-    "https://api-piped.mha.fi",
-]
-
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), max_results: int = 8):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                      "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+    """
+    Searches via public mirrors (Piped first, then Invidious) and maps to our schema.
+    Returns empty list if all mirrors fail—never 500.
+    """
+    ua = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+        )
     }
+
+    # Try Piped
     for base in PIPED_BASES:
         try:
             url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=8) as resp:
+            req = urllib.request.Request(url, headers=ua)
+            with urllib.request.urlopen(req, timeout=10) as resp:
                 data = json.loads(resp.read().decode("utf-8", "ignore"))
-
-            videos = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
-            items = []
-            for v in videos[:max_results]:
-                items.append(SearchItem(
-                    id=v.get("id") or "",
-                    title=v.get("title") or "",
-                    duration=int(v.get("duration") or 0),
-                    thumb=(v.get("thumbnail") or v.get("thumbnailUrl") or "")
-                ).dict())
-            return {"results": items}
+            vids = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
+            if vids:
+                out = []
+                for v in vids[:max_results]:
+                    out.append(SearchItem(
+                        id=v.get("id") or "",
+                        title=v.get("title") or "",
+                        duration=int(v.get("duration") or 0),
+                        thumb=(v.get("thumbnail") or v.get("thumbnailUrl") or "")
+                    ).dict())
+                return {"results": out}
         except Exception:
-            # Try next mirror if this one fails
+            continue  # try next mirror
+
+    # Try Invidious
+    for base in INVIDIOUS_BASES:
+        try:
+            url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&type=video&region=US"
+            req = urllib.request.Request(url, headers=ua)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode("utf-8", "ignore"))
+            if isinstance(data, list) and data:
+                out = []
+                for v in data[:max_results]:
+                    if not isinstance(v, dict):
+                        continue
+                    thumbs = v.get("videoThumbnails") or []
+                    thumb = ""
+                    if isinstance(thumbs, list) and thumbs:
+                        thumb = (thumbs[-1].get("url") or thumbs[0].get("url") or "")
+                    out.append(SearchItem(
+                        id=v.get("videoId") or "",
+                        title=v.get("title") or "",
+                        duration=int(v.get("lengthSeconds") or 0),
+                        thumb=thumb
+                    ).dict())
+                if out:
+                    return {"results": out}
+        except Exception:
             continue
 
-    # If all mirrors failed, return empty list (no 500)
     return {"results": []}
+
+@app.get("/search_debug")
+def search_debug(q: str = Query(..., min_length=2), max_results: int = 8):
+    """Small debug tool to see which mirror answers."""
+    ua = {"User-Agent": "Mozilla/5.0"}
+    tried = []
+
+    for base in PIPED_BASES:
+        url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"
+        try:
+            req = urllib.request.Request(url, headers=ua)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode("utf-8", "ignore"))
+            vids = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
+            return {"source": f"piped:{base}", "count": len(vids), "ok": True}
+        except Exception as ex:
+            tried.append({"piped": base, "error": f"{type(ex).__name__}: {ex}"})
+
+    for base in INVIDIOUS_BASES:
+        url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&type=video&region=US"
+        try:
+            req = urllib.request.Request(url, headers=ua)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode("utf-8", "ignore"))
+            if isinstance(data, list):
+                return {"source": f"invidious:{base}", "count": len(data), "ok": True}
+        except Exception as ex:
+            tried.append({"invidious": base, "error": f"{type(ex).__name__}: {ex}"})
+
+    return {"source": "none", "count": 0, "ok": False, "tried": tried}
 
 @app.get("/resolve")
 def resolve(id: str, prefer: str = "720"):
     try:
         url_watch = f"https://www.youtube.com/watch?v={id}"
 
-        # First pass (Android client)
-        with ydl({"extract_flat": False}) as y:
+        with ydl() as y:
             info = y.extract_info(url_watch, download=False)
 
         if info.get("is_live"):
@@ -170,4 +188,3 @@ def resolve(id: str, prefer: str = "720"):
         }
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"resolve_failed: {type(ex).__name__}: {ex}")
-

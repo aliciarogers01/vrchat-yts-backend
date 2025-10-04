@@ -3,6 +3,8 @@ from pydantic import BaseModel
 import json, urllib.request, urllib.parse
 import yt_dlp
 import json, urllib.request, urllib.parse, random  # ← added random
+import os, re, json, urllib.request, urllib.parse
+
 
 app = FastAPI()
 
@@ -65,6 +67,15 @@ INVIDIOUS_BASES = [
     "https://invidious.slipfox.xyz",
     "https://invidious.drgns.space",
 ]
+
+# ISO8601 duration (e.g., PT3M33S) → seconds
+_DUR_RE = re.compile(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?")
+def _iso_to_seconds(s):
+    m = _DUR_RE.fullmatch(s or "")
+    if not m: return 0
+    h, m_, s_ = [int(x) if x else 0 for x in m.groups()]
+    return h*3600 + m_*60 + s_
+
 # ---------- Endpoints ----------
 @app.get("/")
 def root():
@@ -76,64 +87,57 @@ def healthz():
 
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), max_results: int = 8):
-    import random
-    random.shuffle(PIPED_BASES)
-    random.shuffle(INVIDIOUS_BASES)
+    api_key = os.environ.get("YT_API_KEY")
+    if not api_key:
+        # key should be set in Render settings
+        raise HTTPException(status_code=500, detail="missing_api_key")
 
-    ua = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-            "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
-        )
+    # 1) search -> get video IDs
+    params = {
+        "part": "snippet",
+        "type": "video",
+        "maxResults": str(max(1, min(max_results, 25))),
+        "q": q,
+        "key": api_key,
     }
+    url = "https://www.googleapis.com/youtube/v3/search?" + urllib.parse.urlencode(params)
+    try:
+        with urllib.request.urlopen(url, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8", "ignore"))
+    except Exception as ex:
+        raise HTTPException(status_code=502, detail=f"search_http_error: {type(ex).__name__}: {ex}")
 
-    # Try Piped
-    for base in PIPED_BASES:
-        try:
-            url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"
-            req = urllib.request.Request(url, headers=ua)
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                data = json.loads(resp.read().decode("utf-8", "ignore"))
-            vids = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
-            if vids:
-                return {"results": [
-                    {
-                        "id": v.get("id") or "",
-                        "title": v.get("title") or "",
-                        "duration": int(v.get("duration") or 0),
-                        "thumb": (v.get("thumbnail") or v.get("thumbnailUrl") or "")
-                    } for v in vids[:max_results]
-                ]}
-        except Exception:
-            continue
+    ids = [item["id"]["videoId"] for item in data.get("items", []) if "id" in item and "videoId" in item["id"]]
+    if not ids:
+        return {"results": []}
 
-    # Try Invidious
-    for base in INVIDIOUS_BASES:
-        try:
-            url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&type=video&region=US"
-            req = urllib.request.Request(url, headers=ua)
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                data = json.loads(resp.read().decode("utf-8", "ignore"))
-            if isinstance(data, list) and data:
-                results = []
-                for v in data[:max_results]:
-                    if not isinstance(v, dict): continue
-                    thumbs = v.get("videoThumbnails") or []
-                    thumb = ""
-                    if isinstance(thumbs, list) and thumbs:
-                        thumb = thumbs[-1].get("url") or thumbs[0].get("url") or ""
-                    results.append({
-                        "id": v.get("videoId") or "",
-                        "title": v.get("title") or "",
-                        "duration": int(v.get("lengthSeconds") or 0),
-                        "thumb": thumb
-                    })
-                if results:
-                    return {"results": results}
-        except Exception:
-            continue
+    # 2) videos -> get duration + better thumbs
+    params2 = {
+        "part": "contentDetails,snippet",
+        "id": ",".join(ids),
+        "key": api_key,
+    }
+    url2 = "https://www.googleapis.com/youtube/v3/videos?" + urllib.parse.urlencode(params2)
+    try:
+        with urllib.request.urlopen(url2, timeout=15) as resp:
+            data2 = json.loads(resp.read().decode("utf-8", "ignore"))
+    except Exception as ex:
+        raise HTTPException(status_code=502, detail=f"videos_http_error: {type(ex).__name__}: {ex}")
 
-    return {"results": []}
+    results = []
+    for it in data2.get("items", []):
+        vid = it.get("id") or ""
+        snip = it.get("snippet") or {}
+        thumbs = ((snip.get("thumbnails") or {}).get("medium") or {}).get("url") \
+                 or ((snip.get("thumbnails") or {}).get("default") or {}).get("url") or ""
+        dur = _iso_to_seconds((it.get("contentDetails") or {}).get("duration"))
+        results.append({
+            "id": vid,
+            "title": snip.get("title") or "",
+            "duration": int(dur),
+            "thumb": thumbs
+        })
+    return {"results": results}
 
 @app.get("/search_debug")
 def search_debug(q: str = Query(..., min_length=2), max_results: int = 8):

@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 import json, urllib.request, urllib.parse
 import yt_dlp
+import json, urllib.request, urllib.parse, random  # ← added random
 
 app = FastAPI()
 
@@ -47,13 +48,23 @@ PIPED_BASES = [
     "https://piped.video",
     "https://pipedapi.kavin.rocks",
     "https://api-piped.mha.fi",
+    "https://piped.syncpundit.io",
+    "https://piped.hostux.net",
+    "https://piped.astartes.nl",
+    "https://piped.reallyaweso.me",
+    "https://piped.lunar.icu",
 ]
+
 INVIDIOUS_BASES = [
     "https://yewtu.be",
     "https://inv.nadeko.net",
     "https://invidious.projectsegfau.lt",
+    "https://inv.tux.pizza",
+    "https://invidious.privacydev.net",
+    "https://iv.ggtyler.dev",
+    "https://invidious.slipfox.xyz",
+    "https://invidious.drgns.space",
 ]
-
 # ---------- Endpoints ----------
 @app.get("/")
 def root():
@@ -65,10 +76,10 @@ def healthz():
 
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), max_results: int = 8):
-    """
-    Searches via public mirrors (Piped first, then Invidious) and maps to our schema.
-    Returns empty list if all mirrors fail—never 500.
-    """
+    import random
+    random.shuffle(PIPED_BASES)
+    random.shuffle(INVIDIOUS_BASES)
+
     ua = {
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -81,46 +92,44 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
         try:
             url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"
             req = urllib.request.Request(url, headers=ua)
-            with urllib.request.urlopen(req, timeout=10) as resp:
+            with urllib.request.urlopen(req, timeout=15) as resp:
                 data = json.loads(resp.read().decode("utf-8", "ignore"))
             vids = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
             if vids:
-                out = []
-                for v in vids[:max_results]:
-                    out.append(SearchItem(
-                        id=v.get("id") or "",
-                        title=v.get("title") or "",
-                        duration=int(v.get("duration") or 0),
-                        thumb=(v.get("thumbnail") or v.get("thumbnailUrl") or "")
-                    ).dict())
-                return {"results": out}
+                return {"results": [
+                    {
+                        "id": v.get("id") or "",
+                        "title": v.get("title") or "",
+                        "duration": int(v.get("duration") or 0),
+                        "thumb": (v.get("thumbnail") or v.get("thumbnailUrl") or "")
+                    } for v in vids[:max_results]
+                ]}
         except Exception:
-            continue  # try next mirror
+            continue
 
     # Try Invidious
     for base in INVIDIOUS_BASES:
         try:
             url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&type=video&region=US"
             req = urllib.request.Request(url, headers=ua)
-            with urllib.request.urlopen(req, timeout=10) as resp:
+            with urllib.request.urlopen(req, timeout=15) as resp:
                 data = json.loads(resp.read().decode("utf-8", "ignore"))
             if isinstance(data, list) and data:
-                out = []
+                results = []
                 for v in data[:max_results]:
-                    if not isinstance(v, dict):
-                        continue
+                    if not isinstance(v, dict): continue
                     thumbs = v.get("videoThumbnails") or []
                     thumb = ""
                     if isinstance(thumbs, list) and thumbs:
-                        thumb = (thumbs[-1].get("url") or thumbs[0].get("url") or "")
-                    out.append(SearchItem(
-                        id=v.get("videoId") or "",
-                        title=v.get("title") or "",
-                        duration=int(v.get("lengthSeconds") or 0),
-                        thumb=thumb
-                    ).dict())
-                if out:
-                    return {"results": out}
+                        thumb = thumbs[-1].get("url") or thumbs[0].get("url") or ""
+                    results.append({
+                        "id": v.get("videoId") or "",
+                        "title": v.get("title") or "",
+                        "duration": int(v.get("lengthSeconds") or 0),
+                        "thumb": thumb
+                    })
+                if results:
+                    return {"results": results}
         except Exception:
             continue
 
@@ -128,9 +137,13 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
 
 @app.get("/search_debug")
 def search_debug(q: str = Query(..., min_length=2), max_results: int = 8):
-    """Small debug tool to see which mirror answers."""
+    import random
+    random.shuffle(PIPED_BASES)
+    random.shuffle(INVIDIOUS_BASES)
+
     ua = {"User-Agent": "Mozilla/5.0"}
     tried = []
+    # (rest of your function unchanged, but use timeout=15)
 
     for base in PIPED_BASES:
         url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"

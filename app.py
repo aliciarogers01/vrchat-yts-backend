@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 import yt_dlp
+import json, urllib.request, urllib.parse
+
 
 app = FastAPI()
 
@@ -45,47 +47,42 @@ def root():
 def healthz():
     return {"ok": True}
 
+# Use Piped (YouTube mirror API) for reliable search, then map to our schema
+PIPED_BASES = [
+    "https://piped.video",
+    "https://pipedapi.kavin.rocks",
+    "https://api-piped.mha.fi",
+]
+
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), max_results: int = 8):
-    def _collect(entries):
-        items = []
-        for e in (entries or []):
-            if not e:
-                continue
-            items.append(SearchItem(
-                id=e.get("id") or "",
-                title=e.get("title") or "",
-                duration=int(e.get("duration") or 0),
-                thumb=e.get("thumbnail") or ""
-            ).dict())
-        return items
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+    }
+    for base in PIPED_BASES:
+        try:
+            url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                data = json.loads(resp.read().decode("utf-8", "ignore"))
 
-    try:
-        # 1) Normal search with full extraction (best quality: duration/thumb populated)
-        query = f"ytsearch{max_results}:{q}"
-        with ydl({"extract_flat": False}) as y:
-            data = y.extract_info(query, download=False)
-        items = _collect(data.get("entries"))
-        if items:
+            videos = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
+            items = []
+            for v in videos[:max_results]:
+                items.append(SearchItem(
+                    id=v.get("id") or "",
+                    title=v.get("title") or "",
+                    duration=int(v.get("duration") or 0),
+                    thumb=(v.get("thumbnail") or v.get("thumbnailUrl") or "")
+                ).dict())
             return {"results": items}
+        except Exception:
+            # Try next mirror if this one fails
+            continue
 
-        # 2) Date-ordered search sometimes bypasses quirks
-        query2 = f"ytsearchdate{max_results}:{q}"
-        with ydl({"extract_flat": False}) as y:
-            data2 = y.extract_info(query2, download=False)
-        items = _collect(data2.get("entries"))
-        if items:
-            return {"results": items}
-
-        # 3) Flat search fallback (at least get ids/titles)
-        with ydl({"extract_flat": True}) as y:
-            data3 = y.extract_info(f"ytsearch{max_results}:{q}", download=False)
-        items = _collect(data3.get("entries"))
-        return {"results": items}  # may be empty, but no 500
-    except Exception as ex:
-        raise HTTPException(status_code=502, detail=f"search_failed: {type(ex).__name__}: {ex}")
-
-
+    # If all mirrors failed, return empty list (no 500)
+    return {"results": []}
 
 @app.get("/resolve")
 def resolve(id: str, prefer: str = "720"):

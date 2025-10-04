@@ -71,7 +71,7 @@ def resolve(id: str, prefer: str = "720"):
         url_watch = f"https://www.youtube.com/watch?v={id}"
 
         # First pass (Android client)
-        with ydl() as y:
+        with ydl({"extract_flat": False}) as y:
             info = y.extract_info(url_watch, download=False)
 
         if info.get("is_live"):

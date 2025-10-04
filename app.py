@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 import yt_dlp
 
@@ -10,57 +10,79 @@ class SearchItem(BaseModel):
     duration: int
     thumb: str
 
-def ydl():
-    return yt_dlp.YoutubeDL({
-        "quiet": True,
-        "skip_download": True,
-        "nocheckcertificate": True
-    })
-
-@app.get("/search")
-def search(q: str = Query(..., min_length=2), max_results: int = 8):
-    query = f"ytsearch{max_results}:{q}"
-    with ydl() as y:
-        data = y.extract_info(query, download=False)
-    items = []
-    for e in data["entries"]:
-        if not e: continue
-        dur = int(e.get("duration") or 0)
-        items.append(SearchItem(
-            id=e["id"],
-            title=e.get("title",""),
-            duration=dur,
-            thumb=(e.get("thumbnail") or "")
-        ).dict())
-    return {"results": items}
-
-@app.get("/resolve")
-def resolve(id: str, prefer: str = "720"):
-    fmt_map = {
-        "720": "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720]",
-        "480": "best[height<=480]",
-        "audio": "bestaudio[ext=m4a]/bestaudio"
-    }
-    yopts = {
+def ydl(extra=None):
+    opts = {
         "quiet": True,
         "skip_download": True,
         "nocheckcertificate": True,
-        "format": fmt_map.get(prefer, fmt_map["720"])
+        # make search lighter & more reliable
+        "default_search": "ytsearch",
+        "extract_flat": "in_playlist",
     }
-    with yt_dlp.YoutubeDL(yopts) as y:
-        info = y.extract_info(f"https://www.youtube.com/watch?v={id}", download=False)
-        url = info.get("url")
-        title = info.get("title","")
-        dur = int(info.get("duration") or 0)
-    return {"url": url, "title": title, "duration": dur}
+    if extra:
+        opts.update(extra)
+    return yt_dlp.YoutubeDL(opts)
 
-@app.get("/subs")
-def subs(id: str, lang: str = "en"):
-    with ydl() as y:
-        info = y.extract_info(f"https://www.youtube.com/watch?v={id}", download=False)
-        tracks = info.get("subtitles") or info.get("automatic_captions") or {}
-        best = tracks.get(lang) or next(iter(tracks.values()), [])
-        if not best:
-            return {"vtt": ""}
-        vtt_url = next((x["url"] for x in best if x.get("ext") == "vtt"), best[0]["url"])
-    return {"vtt_url": vtt_url}
+@app.get("/")
+def root():
+    return {"ok": True, "endpoints": ["/healthz", "/search", "/resolve"]}
+
+@app.get("/healthz")
+def healthz():
+    return {"ok": True}
+
+@app.get("/search")
+def search(q: str = Query(..., min_length=2), max_results: int = 8):
+    try:
+        query = f"ytsearch{max_results}:{q}"
+        with ydl() as y:
+            data = y.extract_info(query, download=False)
+        items = []
+        for e in data.get("entries", []) or []:
+            if not e: 
+                continue
+            items.append(SearchItem(
+                id=e.get("id") or "",
+                title=e.get("title") or "",
+                duration=int(e.get("duration") or 0),
+                thumb=e.get("thumbnail") or ""
+            ).dict())
+        return {"results": items}
+    except Exception as ex:
+        # return a readable error instead of 500
+        raise HTTPException(status_code=502, detail=f"search_failed: {type(ex).__name__}: {ex}")
+
+@app.get("/resolve")
+def resolve(id: str, prefer: str = "720"):
+    try:
+        guard = {"quiet": True, "skip_download": True, "nocheckcertificate": True}
+        url_watch = f"https://www.youtube.com/watch?v={id}"
+
+        with ydl(guard) as y:
+            info = y.extract_info(url_watch, download=False)
+
+        if info.get("is_live"):
+            return {"error": "live_not_supported"}
+        if int(info.get("duration") or 0) > 7200:
+            return {"error": "too_long"}
+
+        fmt = {
+            "720": "best[height<=720][ext=mp4]/best[height<=720]",
+            "480": "best[height<=480][ext=mp4]/best[height<=480]",
+            "audio": "bestaudio[ext=m4a]/bestaudio",
+        }.get(prefer, "best[height<=720][ext=mp4]/best[height<=720]")
+
+        with ydl({**guard, "format": fmt}) as y:
+            info2 = y.extract_info(url_watch, download=False)
+
+        url = info2.get("url")
+        if not url:
+            return {"error": "no_playable_url"}
+        return {
+            "url": url,
+            "title": info2.get("title") or "",
+            "duration": int(info2.get("duration") or 0),
+        }
+    except Exception as ex:
+        raise HTTPException(status_code=502, detail=f"resolve_failed: {type(ex).__name__}: {ex}")
+

@@ -3,6 +3,59 @@ from pydantic import BaseModel
 import yt_dlp
 import json, urllib.request, urllib.parse
 
+import json, urllib.request, urllib.parse  # (keep if already added)
+
+PIPED_BASES = [
+    "https://piped.video",
+    "https://pipedapi.kavin.rocks",
+    "https://api-piped.mha.fi",
+]
+INVIDIOUS_BASES = [
+    "https://yewtu.be",
+    "https://inv.nadeko.net",
+    "https://invidious.projectsegfau.lt",
+]
+
+@app.get("/search_debug")
+def search_debug(q: str = Query(..., min_length=2), max_results: int = 8):
+    """Debug search that shows which mirror responded and what it returned."""
+    headers = {"User-Agent": "Mozilla/5.0"}
+    tried = []
+
+    # try piped
+    for base in PIPED_BASES:
+        url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode("utf-8", "ignore"))
+            videos = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
+            return {
+                "source": f"piped:{base}",
+                "count": len(videos),
+                "sample": [v.get("title") for v in videos[:5]],
+            }
+        except Exception as ex:
+            tried.append({"piped": base, "error": f"{type(ex).__name__}: {ex}"})
+
+    # try invidious
+    for base in INVIDIOUS_BASES:
+        url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&type=video&region=US"
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode("utf-8", "ignore"))
+            if isinstance(data, list) and data:
+                return {
+                    "source": f"invidious:{base}",
+                    "count": len(data),
+                    "sample": [v.get("title") for v in data[:5] if isinstance(v, dict)],
+                }
+        except Exception as ex:
+            tried.append({"invidious": base, "error": f"{type(ex).__name__}: {ex}"})
+
+    return {"source": "none", "count": 0, "tried": tried}
+
 
 app = FastAPI()
 

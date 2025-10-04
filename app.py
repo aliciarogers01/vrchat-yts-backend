@@ -15,7 +15,7 @@ BASE_OPTS = {
     "skip_download": True,
     "nocheckcertificate": True,
     "default_search": "ytsearch",
-    "extract_flat": "in_playlist",
+    "extract_flat": False,
     "noplaylist": True,
     "geo_bypass": True,
     "geo_bypass_country": "US",

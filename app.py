@@ -47,21 +47,9 @@ def healthz():
 
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), max_results: int = 8):
-    try:
-        # First attempt: full extraction (Android client) for duration/thumb, etc.
-        query = f"ytsearch{max_results}:{q}"
-        with ydl({"extract_flat": False}) as y:
-            data = y.extract_info(query, download=False)
-        entries = (data.get("entries") or [])
-
-        # Fallback: flat extraction to at least get IDs/titles if strict mode returns nothing
-        if not entries:
-            with ydl({"extract_flat": True}) as y:
-                data2 = y.extract_info(query, download=False)
-            entries = (data2.get("entries") or [])
-
+    def _collect(entries):
         items = []
-        for e in entries:
+        for e in (entries or []):
             if not e:
                 continue
             items.append(SearchItem(
@@ -70,9 +58,33 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
                 duration=int(e.get("duration") or 0),
                 thumb=e.get("thumbnail") or ""
             ).dict())
-        return {"results": items}
+        return items
+
+    try:
+        # 1) Normal search with full extraction (best quality: duration/thumb populated)
+        query = f"ytsearch{max_results}:{q}"
+        with ydl({"extract_flat": False}) as y:
+            data = y.extract_info(query, download=False)
+        items = _collect(data.get("entries"))
+        if items:
+            return {"results": items}
+
+        # 2) Date-ordered search sometimes bypasses quirks
+        query2 = f"ytsearchdate{max_results}:{q}"
+        with ydl({"extract_flat": False}) as y:
+            data2 = y.extract_info(query2, download=False)
+        items = _collect(data2.get("entries"))
+        if items:
+            return {"results": items}
+
+        # 3) Flat search fallback (at least get ids/titles)
+        with ydl({"extract_flat": True}) as y:
+            data3 = y.extract_info(f"ytsearch{max_results}:{q}", download=False)
+        items = _collect(data3.get("entries"))
+        return {"results": items}  # may be empty, but no 500
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"search_failed: {type(ex).__name__}: {ex}")
+
 
 
 @app.get("/resolve")

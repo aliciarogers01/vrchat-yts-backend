@@ -4,6 +4,9 @@ import json, urllib.request, urllib.parse
 import yt_dlp
 import json, urllib.request, urllib.parse, random  # ← added random
 import os, re, json, urllib.request, urllib.parse
+from fastapi.responses import RedirectResponse, Response
+from PIL import Image, ImageDraw, ImageFont
+import io
 
 
 app = FastAPI()
@@ -75,6 +78,29 @@ def _iso_to_seconds(s):
     if not m: return 0
     h, m_, s_ = [int(x) if x else 0 for x in m.groups()]
     return h*3600 + m_*60 + s_
+def _playable_url_from_id(yt_id: str, prefer: str = "720") -> str | None:
+    """Return a direct HLS/MP4 URL for a YouTube ID (or None on failure)."""
+    url_watch = f"https://www.youtube.com/watch?v={yt_id}"
+
+    with ydl() as y:
+        info = y.extract_info(url_watch, download=False)
+
+    if info.get("is_live"):
+        return None
+    if int(info.get("duration") or 0) > 7200:
+        return None
+
+    fmt = {
+        "720": "best[height<=720][ext=mp4]/best[height<=720]",
+        "480": "best[height<=480][ext=mp4]/best[height<=480]",
+        "audio": "bestaudio[ext=m4a]/bestaudio",
+    }.get(prefer, "best[height<=720][ext=mp4]/best[height<=720]")
+
+    with ydl({"format": fmt}) as y:
+        info2 = y.extract_info(url_watch, download=False)
+
+    return info2.get("url")
+
 
 # ---------- Endpoints ----------
 @app.get("/")
@@ -205,3 +231,69 @@ def resolve(id: str, prefer: str = "720"):
         }
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"resolve_failed: {type(ex).__name__}: {ex}")
+
+@app.get("/search_grid")
+def search_grid(q: str = Query(..., min_length=2), page: int = 1):
+    """
+    Renders a 2x5 PNG grid with indices + titles from /search results.
+    Client (Unity) shows this with VRC Url Image.
+    """
+    # Reuse your /search logic to get up to 10 results
+    data = search(q=q, max_results=10)  # calls your existing function above
+    results = data.get("results", [])[:10]
+
+    # Layout
+    cols, rows = 2, 5            # change to 3x4 if you like
+    cell_w, cell_h = 640, 360
+    pad = 20
+    W = cols * cell_w + (cols + 1) * pad
+    H = rows * cell_h + (rows + 1) * pad
+
+    img = Image.new("RGB", (W, H), (18, 18, 18))
+    draw = ImageDraw.Draw(img)
+
+    try:
+        font = ImageFont.truetype("DejaVuSans.ttf", 24)
+        small = ImageFont.truetype("DejaVuSans.ttf", 18)
+    except Exception:
+        font = small = ImageFont.load_default()
+
+    for n, item in enumerate(results):
+        c, r = n % cols, n // cols
+        x = pad + c * (cell_w + pad)
+        y = pad + r * (cell_h + pad)
+
+        # Cell border
+        draw.rectangle([x, y, x + cell_w, y + cell_h], outline=(80, 80, 80), width=2)
+
+        # Index badge
+        draw.rectangle([x, y, x + 54, y + 36], fill=(0, 123, 255))
+        draw.text((x + 10, y + 8), f"{n}", fill="white", font=font)
+
+        # Title
+        title = (item.get("title") or "")[:60]
+        draw.text((x + 8, y + cell_h - 40), title, fill=(230, 230, 230), font=small)
+
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    return Response(content=buf.getvalue(), media_type="image/png")
+
+@app.get("/resolve_index")
+def resolve_index(q: str = Query(..., min_length=2), page: int = 1, i: int = 0, prefer: str = "720"):
+    """
+    Picks result i from the search, resolves it to a direct media URL,
+    and 302-redirects there so the VRChat video player can load it.
+    """
+    data = search(q=q, max_results=10)  # reuse your existing /search
+    results = data.get("results", [])[:10]
+
+    if not results or i < 0 or i >= len(results):
+        raise HTTPException(status_code=404, detail="index_out_of_range")
+
+    yt_id = results[i]["id"]
+    media = _playable_url_from_id(yt_id, prefer=prefer)
+    if not media:
+        raise HTTPException(status_code=502, detail="no_playable_url")
+
+    return RedirectResponse(url=media, status_code=302)
+

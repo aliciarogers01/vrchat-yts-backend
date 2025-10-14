@@ -1,24 +1,20 @@
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import RedirectResponse, Response, JSONResponse
 from pydantic import BaseModel
-import json, urllib.request, urllib.parse
-import yt_dlp
-import json, urllib.request, urllib.parse, random  # ← added random
-import os, re, json, urllib.request, urllib.parse
-from fastapi.responses import RedirectResponse, Response
+import os, re, io, json, random, urllib.request, urllib.parse
 from PIL import Image, ImageDraw, ImageFont
-import io
-
+import yt_dlp
 
 app = FastAPI()
 
-# ---------- Models ----------
+# --------------------------- Models ---------------------------
 class SearchItem(BaseModel):
     id: str
     title: str
     duration: int
     thumb: str
 
-# ---------- yt-dlp base options (for /resolve) ----------
+# -------------------- yt-dlp base options ---------------------
 BASE_OPTS = {
     "quiet": True,
     "skip_download": True,
@@ -48,40 +44,37 @@ def ydl(extra=None):
         opts.update(extra)
     return yt_dlp.YoutubeDL(opts)
 
-# ---------- Search mirrors ----------
-PIPED_BASES = [
-    "https://piped.video",
-    "https://pipedapi.kavin.rocks",
-    "https://api-piped.mha.fi",
-    "https://piped.syncpundit.io",
-    "https://piped.hostux.net",
-    "https://piped.astartes.nl",
-    "https://piped.reallyaweso.me",
-    "https://piped.lunar.icu",
-]
+# ------------------ Helpers / Utilities -----------------------
+UA = {"User-Agent": "Mozilla/5.0"}
 
-INVIDIOUS_BASES = [
-    "https://yewtu.be",
-    "https://inv.nadeko.net",
-    "https://invidious.projectsegfau.lt",
-    "https://inv.tux.pizza",
-    "https://invidious.privacydev.net",
-    "https://iv.ggtyler.dev",
-    "https://invidious.slipfox.xyz",
-    "https://invidious.drgns.space",
-]
+def _urlopen(url: str, timeout: int = 15):
+    req = urllib.request.Request(url, headers=UA)
+    return urllib.request.urlopen(req, timeout=timeout)
 
-# ISO8601 duration (e.g., PT3M33S) → seconds
+# ISO8601 duration → seconds
 _DUR_RE = re.compile(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?")
-def _iso_to_seconds(s):
+def _iso_to_seconds(s: str) -> int:
     m = _DUR_RE.fullmatch(s or "")
-    if not m: return 0
+    if not m:
+        return 0
     h, m_, s_ = [int(x) if x else 0 for x in m.groups()]
-    return h*3600 + m_*60 + s_
+    return h * 3600 + m_ * 60 + s_
+
+def _thumb_url(yt_id: str, quality: str = "hq") -> str:
+    # valid: default (120x90), mq (320x180), hq (480x360), sd (640x480), max (1280x720)
+    q = (quality or "hq").lower()
+    name = {
+        "default": "default.jpg",
+        "mq": "mqdefault.jpg",
+        "hq": "hqdefault.jpg",
+        "sd": "sddefault.jpg",
+        "max": "maxresdefault.jpg",
+    }.get(q, "hqdefault.jpg")
+    return f"https://i.ytimg.com/vi/{yt_id}/{name}"
+
 def _playable_url_from_id(yt_id: str, prefer: str = "720") -> str | None:
     """Return a direct HLS/MP4 URL for a YouTube ID (or None on failure)."""
     url_watch = f"https://www.youtube.com/watch?v={yt_id}"
-
     with ydl() as y:
         info = y.extract_info(url_watch, download=False)
 
@@ -101,11 +94,10 @@ def _playable_url_from_id(yt_id: str, prefer: str = "720") -> str | None:
 
     return info2.get("url")
 
-
-# ---------- Endpoints ----------
+# --------------------------- Endpoints ------------------------
 @app.get("/")
 def root():
-    return {"ok": True, "endpoints": ["/healthz", "/search", "/search_debug", "/resolve"]}
+    return {"ok": True, "endpoints": ["/healthz", "/search", "/search_grid_thumb", "/thumb", "/resolve", "/resolve_index", "/search_grid"]}
 
 @app.get("/healthz")
 def healthz():
@@ -113,9 +105,9 @@ def healthz():
 
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), max_results: int = 8):
+    """YouTube Data API search → returns ids, titles, durations, and DIRECT thumbnail URLs (i.ytimg.com)."""
     api_key = os.environ.get("YT_API_KEY")
     if not api_key:
-        # key should be set in Render settings
         raise HTTPException(status_code=500, detail="missing_api_key")
 
     # 1) search -> get video IDs
@@ -128,16 +120,16 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
     }
     url = "https://www.googleapis.com/youtube/v3/search?" + urllib.parse.urlencode(params)
     try:
-        with urllib.request.urlopen(url, timeout=15) as resp:
+        with _urlopen(url, timeout=15) as resp:
             data = json.loads(resp.read().decode("utf-8", "ignore"))
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"search_http_error: {type(ex).__name__}: {ex}")
 
-    ids = [item["id"]["videoId"] for item in data.get("items", []) if "id" in item and "videoId" in item["id"]]
+    ids = [item["id"]["videoId"] for item in data.get("items", []) if item.get("id", {}).get("videoId")]
     if not ids:
         return {"results": []}
 
-    # 2) videos -> get duration + better thumbs
+    # 2) videos -> get duration + thumbs (these URLs are already i.ytimg.com)
     params2 = {
         "part": "contentDetails,snippet",
         "id": ",".join(ids),
@@ -145,7 +137,7 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
     }
     url2 = "https://www.googleapis.com/youtube/v3/videos?" + urllib.parse.urlencode(params2)
     try:
-        with urllib.request.urlopen(url2, timeout=15) as resp:
+        with _urlopen(url2, timeout=15) as resp:
             data2 = json.loads(resp.read().decode("utf-8", "ignore"))
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"videos_http_error: {type(ex).__name__}: {ex}")
@@ -165,42 +157,70 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
         })
     return {"results": results}
 
-@app.get("/search_debug")
-def search_debug(q: str = Query(..., min_length=2), max_results: int = 8):
-    import random
-    random.shuffle(PIPED_BASES)
-    random.shuffle(INVIDIOUS_BASES)
+@app.get("/thumb")
+def thumb(id: str, quality: str = "hq", mode: str = "bytes"):
+    """
+    Simple thumbnail fetch by video id.
+    mode=bytes (default): proxy image bytes (best for VRChat ImageDownloader).
+    mode=redirect: 302 to i.ytimg.com URL (some VRChat versions may not follow).
+    """
+    url = _thumb_url(id, quality=quality)
+    if mode == "redirect":
+        return RedirectResponse(url=url, status_code=302)
+    try:
+        with _urlopen(url, timeout=15) as resp:
+            data = resp.read()
+        return Response(content=data, media_type="image/jpeg", headers={
+            "Cache-Control": "public, max-age=3600"
+        })
+    except Exception as ex:
+        raise HTTPException(status_code=502, detail=f"thumb_fetch_failed: {type(ex).__name__}: {ex}")
 
-    ua = {"User-Agent": "Mozilla/5.0"}
-    tried = []
-    # (rest of your function unchanged, but use timeout=15)
+@app.get("/search_grid_thumb")
+def search_grid_thumb(
+    q: str = Query(..., min_length=2),
+    page: int = 0,
+    cols: int = 3,
+    rows: int = 4,
+    i:   int = 0,
+    quality: str = "hq",
+    mode: str = "bytes"  # "bytes" (recommended) or "redirect"
+):
+    """
+    Return the thumbnail for the i-th cell in a (cols x rows) page of results as an IMAGE.
+    This endpoint now returns actual JPEG bytes by default (works with VRCImageDownloader).
+    """
+    # how many results needed for this page:
+    per_page = max(1, cols * rows)
+    # fetch enough to cover pages up to 'page'
+    need = (page + 1) * per_page
 
-    for base in PIPED_BASES:
-        url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&region=US"
-        try:
-            req = urllib.request.Request(url, headers=ua)
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                data = json.loads(resp.read().decode("utf-8", "ignore"))
-            vids = [e for e in data if isinstance(e, dict) and e.get("type") == "video"]
-            return {"source": f"piped:{base}", "count": len(vids), "ok": True}
-        except Exception as ex:
-            tried.append({"piped": base, "error": f"{type(ex).__name__}: {ex}"})
+    data = search(q=q, max_results=min(need, 25))  # YT API caps at 50; we're using <=25
+    results = data.get("results", [])
 
-    for base in INVIDIOUS_BASES:
-        url = f"{base}/api/v1/search?q={urllib.parse.quote(q)}&type=video&region=US"
-        try:
-            req = urllib.request.Request(url, headers=ua)
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                data = json.loads(resp.read().decode("utf-8", "ignore"))
-            if isinstance(data, list):
-                return {"source": f"invidious:{base}", "count": len(data), "ok": True}
-        except Exception as ex:
-            tried.append({"invidious": base, "error": f"{type(ex).__name__}: {ex}"})
+    # compute absolute index for this page
+    idx = page * per_page + i
+    if idx < 0 or idx >= len(results):
+        raise HTTPException(status_code=404, detail="index_out_of_range")
 
-    return {"source": "none", "count": 0, "ok": False, "tried": tried}
+    vid = results[idx]["id"]
+    url = _thumb_url(vid, quality=quality)
+
+    if mode == "redirect":
+        return RedirectResponse(url=url, status_code=302)
+
+    try:
+        with _urlopen(url, timeout=15) as resp:
+            img_bytes = resp.read()
+        return Response(content=img_bytes, media_type="image/jpeg", headers={
+            "Cache-Control": "public, max-age=900"
+        })
+    except Exception as ex:
+        raise HTTPException(status_code=502, detail=f"thumb_proxy_failed: {type(ex).__name__}: {ex}")
 
 @app.get("/resolve")
 def resolve(id: str, prefer: str = "720"):
+    """Resolve a YouTube ID to a playable media URL using yt-dlp (JSON response)."""
     try:
         url_watch = f"https://www.youtube.com/watch?v={id}"
 
@@ -232,18 +252,38 @@ def resolve(id: str, prefer: str = "720"):
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"resolve_failed: {type(ex).__name__}: {ex}")
 
+@app.get("/resolve_index")
+def resolve_index(q: str = Query(..., min_length=2), page: int = 0, i: int = 0, prefer: str = "720"):
+    """
+    Picks result i from the requested page, resolves it to a direct media URL,
+    and 302-redirects there so the VRChat video player can load it.
+    """
+    per_page = 10
+    need = (page + 1) * per_page
+    data = search(q=q, max_results=min(need, 25))
+    results = data.get("results", [])
+    idx = page * per_page + i
+    if not results or idx < 0 or idx >= len(results):
+        raise HTTPException(status_code=404, detail="index_out_of_range")
+
+    yt_id = results[idx]["id"]
+    media = _playable_url_from_id(yt_id, prefer=prefer)
+    if not media:
+        raise HTTPException(status_code=502, detail="no_playable_url")
+
+    return RedirectResponse(url=media, status_code=302)
+
 @app.get("/search_grid")
-def search_grid(q: str = Query(..., min_length=2), page: int = 1):
+def search_grid(q: str = Query(..., min_length=2), page: int = 0):
     """
-    Renders a 2x5 PNG grid with indices + titles from /search results.
-    Client (Unity) shows this with VRC Url Image.
+    Renders a simple PNG grid (2x5 by default) with indices + titles from /search results.
+    Useful for debugging.
     """
-    # Reuse your /search logic to get up to 10 results
-    data = search(q=q, max_results=10)  # calls your existing function above
+    data = search(q=q, max_results=10)
     results = data.get("results", [])[:10]
 
     # Layout
-    cols, rows = 2, 5            # change to 3x4 if you like
+    cols, rows = 2, 5
     cell_w, cell_h = 640, 360
     pad = 20
     W = cols * cell_w + (cols + 1) * pad
@@ -263,14 +303,10 @@ def search_grid(q: str = Query(..., min_length=2), page: int = 1):
         x = pad + c * (cell_w + pad)
         y = pad + r * (cell_h + pad)
 
-        # Cell border
         draw.rectangle([x, y, x + cell_w, y + cell_h], outline=(80, 80, 80), width=2)
-
-        # Index badge
         draw.rectangle([x, y, x + 54, y + 36], fill=(0, 123, 255))
         draw.text((x + 10, y + 8), f"{n}", fill="white", font=font)
 
-        # Title
         title = (item.get("title") or "")[:60]
         draw.text((x + 8, y + cell_h - 40), title, fill=(230, 230, 230), font=small)
 
@@ -278,22 +314,4 @@ def search_grid(q: str = Query(..., min_length=2), page: int = 1):
     img.save(buf, format="PNG")
     return Response(content=buf.getvalue(), media_type="image/png")
 
-@app.get("/resolve_index")
-def resolve_index(q: str = Query(..., min_length=2), page: int = 1, i: int = 0, prefer: str = "720"):
-    """
-    Picks result i from the search, resolves it to a direct media URL,
-    and 302-redirects there so the VRChat video player can load it.
-    """
-    data = search(q=q, max_results=10)  # reuse your existing /search
-    results = data.get("results", [])[:10]
-
-    if not results or i < 0 or i >= len(results):
-        raise HTTPException(status_code=404, detail="index_out_of_range")
-
-    yt_id = results[i]["id"]
-    media = _playable_url_from_id(yt_id, prefer=prefer)
-    if not media:
-        raise HTTPException(status_code=502, detail="no_playable_url")
-
-    return RedirectResponse(url=media, status_code=302)
 

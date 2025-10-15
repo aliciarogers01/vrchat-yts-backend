@@ -1,10 +1,10 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import RedirectResponse, Response, JSONResponse
 from pydantic import BaseModel
-import os, re, io, json, urllib.request, urllib.parse
+import os, re, io, json, urllib.request, urllib.parse, time
 from PIL import Image, ImageDraw, ImageFont
 import yt_dlp
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 
 app = FastAPI()
 
@@ -24,18 +24,10 @@ BASE_OPTS = {
     "noplaylist": True,
     "geo_bypass": True,
     "geo_bypass_country": "US",
-    # Pretend to be Android client to avoid web bot checks
-    "extractor_args": {
-        "youtube": {
-            "player_client": ["android"],
-            "player_skip": ["webpage"],
-        }
-    },
+    "extractor_args": {"youtube": {"player_client": ["android"], "player_skip": ["webpage"]}},
     "http_headers": {
-        "User-Agent": (
-            "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 "
-            "(KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36"
-        )
+        "User-Agent": ("Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 "
+                       "(KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36")
     },
 }
 
@@ -52,7 +44,6 @@ def _urlopen(url: str, timeout: int = 15):
     req = urllib.request.Request(url, headers=UA)
     return urllib.request.urlopen(req, timeout=timeout)
 
-# ISO8601 duration → seconds
 _DUR_RE = re.compile(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?")
 def _iso_to_seconds(s: str) -> int:
     m = _DUR_RE.fullmatch(s or "")
@@ -62,69 +53,51 @@ def _iso_to_seconds(s: str) -> int:
     return h * 3600 + m_ * 60 + s_
 
 def _thumb_url(yt_id: str, quality: str = "hq") -> str:
-    # valid: default (120x90), mq (320x180), hq (480x360), sd (640x480), max (1280x720)
-    q = (quality or "hq").lower()
     name = {
-        "default": "default.jpg",
-        "mq": "mqdefault.jpg",
-        "hq": "hqdefault.jpg",
-        "sd": "sddefault.jpg",
-        "max": "maxresdefault.jpg",
-    }.get(q, "hqdefault.jpg")
+        "default": "default.jpg", "mq": "mqdefault.jpg", "hq": "hqdefault.jpg",
+        "sd": "sddefault.jpg", "max": "maxresdefault.jpg",
+    }.get((quality or "hq").lower(), "hqdefault.jpg")
     return f"https://i.ytimg.com/vi/{yt_id}/{name}"
 
-def _playable_url_from_id(yt_id: str, prefer: str = "720") -> str | None:
-    """Return a direct HLS/MP4 URL for a YouTube ID (or None on failure)."""
+def _playable_url_from_id(yt_id: str, prefer: str = "720") -> Optional[str]:
     url_watch = f"https://www.youtube.com/watch?v={yt_id}"
     with ydl() as y:
         info = y.extract_info(url_watch, download=False)
-
     if info.get("is_live"):
         return None
     if int(info.get("duration") or 0) > 7200:
         return None
-
     fmt = {
         "720": "best[height<=720][ext=mp4]/best[height<=720]",
         "480": "best[height<=480][ext=mp4]/best[height<=480]",
         "audio": "bestaudio[ext=m4a]/bestaudio",
     }.get(prefer, "best[height<=720][ext=mp4]/best[height<=720]")
-
     with ydl({"format": fmt}) as y:
         info2 = y.extract_info(url_watch, download=False)
-
     return info2.get("url")
 
-# --------------------------- Endpoints (Existing) ------------------------
-@app.get("/")
-def root():
-    return {
-        "ok": True,
-        "endpoints": [
-            "/healthz", "/search", "/search_grid_thumb", "/thumb",
-            "/resolve", "/resolve_index", "/search_grid",
-            "/update_sheet", "/sheet.png"
-        ]
-    }
+# ----------------------- Server-side state --------------------
+LAST_Q: str = "hello"   # default so first sheet isn't empty
+LAST_PAGE: int = 0
+COLS: int = 3
+ROWS: int = 4
 
-@app.get("/healthz")
-def healthz():
-    return {"ok": True}
+def set_state(q: Optional[str] = None, page: Optional[int] = None):
+    global LAST_Q, LAST_PAGE
+    if q is not None:
+        LAST_Q = q
+    if page is not None:
+        LAST_PAGE = max(0, int(page))
 
-@app.get("/search")
-def search(q: str = Query(..., min_length=2), max_results: int = 8):
-    """YouTube Data API search → returns ids, titles, durations, and DIRECT thumbnail URLs (i.ytimg.com)."""
+# ---------------------- Search primitives ---------------------
+def _youtube_search(q: str, max_results: int = 8):
     api_key = os.environ.get("YT_API_KEY")
     if not api_key:
         raise HTTPException(status_code=500, detail="missing_api_key")
 
-    # 1) search -> get video IDs
     params = {
-        "part": "snippet",
-        "type": "video",
-        "maxResults": str(max(1, min(max_results, 25))),
-        "q": q,
-        "key": api_key,
+        "part": "snippet", "type": "video", "maxResults": str(max(1, min(max_results, 25))),
+        "q": q, "key": api_key,
     }
     url = "https://www.googleapis.com/youtube/v3/search?" + urllib.parse.urlencode(params)
     try:
@@ -133,16 +106,11 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"search_http_error: {type(ex).__name__}: {ex}")
 
-    ids = [item["id"]["videoId"] for item in data.get("items", []) if item.get("id", {}).get("videoId")]
+    ids = [it["id"]["videoId"] for it in data.get("items", []) if it.get("id", {}).get("videoId")]
     if not ids:
-        return {"results": []}
+        return []
 
-    # 2) videos -> get duration + thumbs (these URLs are already i.ytimg.com)
-    params2 = {
-        "part": "contentDetails,snippet",
-        "id": ",".join(ids),
-        "key": api_key,
-    }
+    params2 = {"part": "contentDetails,snippet", "id": ",".join(ids), "key": api_key}
     url2 = "https://www.googleapis.com/youtube/v3/videos?" + urllib.parse.urlencode(params2)
     try:
         with _urlopen(url2, timeout=15) as resp:
@@ -150,123 +118,96 @@ def search(q: str = Query(..., min_length=2), max_results: int = 8):
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"videos_http_error: {type(ex).__name__}: {ex}")
 
-    results = []
+    out = []
     for it in data2.get("items", []):
         vid = it.get("id") or ""
         snip = it.get("snippet") or {}
         thumbs = ((snip.get("thumbnails") or {}).get("medium") or {}).get("url") \
                  or ((snip.get("thumbnails") or {}).get("default") or {}).get("url") or ""
         dur = _iso_to_seconds((it.get("contentDetails") or {}).get("duration"))
-        results.append({
-            "id": vid,
-            "title": snip.get("title") or "",
-            "duration": int(dur),
-            "thumb": thumbs
-        })
+        out.append({"id": vid, "title": snip.get("title") or "", "duration": int(dur), "thumb": thumbs})
+    return out
+
+# ---------------- Sprite-sheet cache & builder ----------------
+_TRANSPARENT_PNG = bytes.fromhex(
+    "89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c489"
+    "0000000a49444154789c636000000200010005fe02fea7c6a90000000049454e44ae426082"
+)
+
+_current_sheet_png: Optional[bytes] = None
+_current_meta = {"q": LAST_Q, "cols": COLS, "rows": ROWS, "page": LAST_PAGE, "at": 0}
+
+def _fetch_image(url: str) -> Image.Image:
+    with _urlopen(url, timeout=15) as resp:
+        data = resp.read()
+    img = Image.open(io.BytesIO(data))
+    return img.convert("RGB")
+
+def _build_sheet(results: List[dict], cols: int, rows: int, page: int) -> Tuple[bytes, Tuple[int,int]]:
+    per = cols * rows
+    start = page * per
+    picks = results[start:start + per]
+    if len(picks) < per:
+        raise HTTPException(status_code=404, detail="not_enough_results")
+
+    imgs: List[Image.Image] = []
+    for item in picks:
+        url = item.get("thumb") or _thumb_url(item["id"], "mq")
+        imgs.append(_fetch_image(url))
+
+    w, h = imgs[0].size
+    imgs = [im if im.size == (w, h) else im.resize((w, h), Image.LANCZOS) for im in imgs]
+
+    sheet = Image.new("RGB", (w * cols, h * rows))
+    for n, im in enumerate(imgs):
+        cx, cy = n % cols, n // cols
+        sheet.paste(im, (cx * w, cy * h))
+
+    buf = io.BytesIO()
+    sheet.save(buf, format="PNG", optimize=True)
+    return buf.getvalue(), (w, h)
+
+def _rebuild_sheet(q: str, page: int, cols: int, rows: int) -> Tuple[bytes, Tuple[int,int]]:
+    need = (page + 1) * max(1, cols * rows)
+    results = _youtube_search(q=q, max_results=min(need, 25))
+    return _build_sheet(results, cols, rows, page)
+
+# --------------------------- Endpoints ------------------------
+@app.get("/")
+def root():
+    return {"ok": True, "endpoints": ["/healthz", "/search", "/thumb", "/resolve_index", "/update_sheet", "/sheet.png"]}
+
+@app.get("/healthz")
+def healthz():
+    return {"ok": True}
+
+@app.get("/search")
+def search(q: str = Query(..., min_length=2)):
+    # Update server-side state when user searches (page resets to 0)
+    set_state(q=q, page=0)
+    results = _youtube_search(q=q, max_results=10)
     return {"results": results}
 
 @app.get("/thumb")
 def thumb(id: str, quality: str = "hq", mode: str = "bytes"):
-    """
-    Simple thumbnail fetch by video id.
-    mode=bytes (default): proxy image bytes (best for VRChat ImageDownloader).
-    mode=redirect: 302 to i.ytimg.com URL (some VRChat versions may not follow).
-    """
     url = _thumb_url(id, quality=quality)
     if mode == "redirect":
         return RedirectResponse(url=url, status_code=302)
     try:
         with _urlopen(url, timeout=15) as resp:
             data = resp.read()
-        return Response(content=data, media_type="image/jpeg", headers={
-            "Cache-Control": "public, max-age=3600"
-        })
+        return Response(content=data, media_type="image/jpeg", headers={"Cache-Control": "public, max-age=900"})
     except Exception as ex:
         raise HTTPException(status_code=502, detail=f"thumb_fetch_failed: {type(ex).__name__}: {ex}")
 
-@app.get("/search_grid_thumb")
-def search_grid_thumb(
-    q: str = Query(..., min_length=2),
-    page: int = 0,
-    cols: int = 3,
-    rows: int = 4,
-    i:   int = 0,
-    quality: str = "hq",
-    mode: str = "bytes"  # "bytes" (recommended) or "redirect"
-):
-    """
-    Return the thumbnail for the i-th cell in a (cols x rows) page of results as an IMAGE.
-    This endpoint returns actual JPEG bytes by default (works with VRCImageDownloader).
-    """
-    per_page = max(1, cols * rows)
-    need = (page + 1) * per_page
-
-    data = search(q=q, max_results=min(need, 25))
-    results = data.get("results", [])
-
-    idx = page * per_page + i
-    if idx < 0 or idx >= len(results):
-        raise HTTPException(status_code=404, detail="index_out_of_range")
-
-    vid = results[idx]["id"]
-    url = _thumb_url(vid, quality=quality)
-
-    if mode == "redirect":
-        return RedirectResponse(url=url, status_code=302)
-
-    try:
-        with _urlopen(url, timeout=15) as resp:
-            img_bytes = resp.read()
-        return Response(content=img_bytes, media_type="image/jpeg", headers={
-            "Cache-Control": "public, max-age=900"
-        })
-    except Exception as ex:
-        raise HTTPException(status_code=502, detail=f"thumb_proxy_failed: {type(ex).__name__}: {ex}")
-
-@app.get("/resolve")
-def resolve(id: str, prefer: str = "720"):
-    """Resolve a YouTube ID to a playable media URL using yt-dlp (JSON response)."""
-    try:
-        url_watch = f"https://www.youtube.com/watch?v={id}"
-
-        with ydl() as y:
-            info = y.extract_info(url_watch, download=False)
-
-        if info.get("is_live"):
-            return {"error": "live_not_supported"}
-        if int(info.get("duration") or 0) > 7200:
-            return {"error": "too_long"}
-
-        fmt = {
-            "720": "best[height<=720][ext=mp4]/best[height<=720]",
-            "480": "best[height<=480][ext=mp4]/best[height<=480]",
-            "audio": "bestaudio[ext=m4a]/bestaudio",
-        }.get(prefer, "best[height<=720][ext=mp4]/best[height<=720]")
-
-        with ydl({"format": fmt}) as y:
-            info2 = y.extract_info(url_watch, download=False)
-
-        url = info2.get("url")
-        if not url:
-            return {"error": "no_playable_url"}
-        return {
-            "url": url,
-            "title": info2.get("title") or "",
-            "duration": int(info2.get("duration") or 0),
-        }
-    except Exception as ex:
-        raise HTTPException(status_code=502, detail=f"resolve_failed: {type(ex).__name__}: {ex}")
-
 @app.get("/resolve_index")
 def resolve_index(q: str = Query(..., min_length=2), page: int = 0, i: int = 0, prefer: str = "720"):
-    """
-    Picks result i from the requested page, resolves it to a direct media URL,
-    and 302-redirects there so the VRChat video player can load it.
-    """
+    # Keep server state in sync (so /update_sheet with no params knows what to build)
+    set_state(q=q, page=page)
+
     per_page = 10
     need = (page + 1) * per_page
-    data = search(q=q, max_results=min(need, 25))
-    results = data.get("results", [])
+    results = _youtube_search(q=q, max_results=min(need, 25))
     idx = page * per_page + i
     if not results or idx < 0 or idx >= len(results):
         raise HTTPException(status_code=404, detail="index_out_of_range")
@@ -275,140 +216,61 @@ def resolve_index(q: str = Query(..., min_length=2), page: int = 0, i: int = 0, 
     media = _playable_url_from_id(yt_id, prefer=prefer)
     if not media:
         raise HTTPException(status_code=502, detail="no_playable_url")
-
     return RedirectResponse(url=media, status_code=302)
-
-@app.get("/search_grid")
-def search_grid(q: str = Query(..., min_length=2), page: int = 0):
-    """
-    Renders a simple PNG grid (2x5 by default) with indices + titles from /search results.
-    Useful for debugging.
-    """
-    data = search(q=q, max_results=10)
-    results = data.get("results", [])[:10]
-
-    # Layout
-    cols, rows = 2, 5
-    cell_w, cell_h = 640, 360
-    pad = 20
-    W = cols * cell_w + (cols + 1) * pad
-    H = rows * cell_h + (rows + 1) * pad
-
-    img = Image.new("RGB", (W, H), (18, 18, 18))
-    draw = ImageDraw.Draw(img)
-
-    try:
-        font = ImageFont.truetype("DejaVuSans.ttf", 24)
-        small = ImageFont.truetype("DejaVuSans.ttf", 18)
-    except Exception:
-        font = small = ImageFont.load_default()
-
-    for n, item in enumerate(results):
-        c, r = n % cols, n // cols
-        x = pad + c * (cell_w + pad)
-        y = pad + r * (cell_h + pad)
-
-        draw.rectangle([x, y, x + cell_w, y + cell_h], outline=(80, 80, 80), width=2)
-        draw.rectangle([x, y, x + 54, y + 36], fill=(0, 123, 255))
-        draw.text((x + 10, y + 8), f"{n}", fill="white", font=font)
-
-        title = (item.get("title") or "")[:60]
-        draw.text((x + 8, y + cell_h - 40), title, fill=(230, 230, 230), font=small)
-
-    buf = io.BytesIO()
-    img.save(buf, format="PNG")
-    return Response(content=buf.getvalue(), media_type="image/png")
-
-# ---------------- NEW: Sprite-sheet builder + fixed image endpoint ----------------
-
-# 1x1 transparent PNG to serve before first update (so VRC gets an image, not an error)
-_TRANSPARENT_PNG = bytes.fromhex(
-    "89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c489"
-    "0000000a49444154789c636000000200010005fe02fea7c6a90000000049454e44ae426082"
-)
-
-_current_sheet_png: bytes | None = None
-_current_meta = {"q": "", "cols": 3, "rows": 4, "at": 0}
-
-def _fetch_image(url: str) -> Image.Image:
-    with _urlopen(url, timeout=15) as resp:
-        data = resp.read()
-    img = Image.open(io.BytesIO(data))
-    # convert to RGB for consistent paste
-    return img.convert("RGB")
-
-def _build_sheet_from_results(results: List[dict], cols: int, rows: int, page: int = 0) -> Tuple[bytes, Tuple[int,int]]:
-    per = cols * rows
-    start = page * per
-    picks = results[start:start + per]
-    if len(picks) < per:
-        raise HTTPException(status_code=404, detail="not_enough_results")
-
-    # pull images
-    images: List[Image.Image] = []
-    for item in picks:
-        url = item.get("thumb") or _thumb_url(item["id"], "mq")
-        images.append(_fetch_image(url))
-
-    # normalize sizes to first image
-    w, h = images[0].size
-    images = [im if im.size == (w, h) else im.resize((w, h), Image.LANCZOS) for im in images]
-
-    sheet = Image.new("RGB", (w * cols, h * rows))
-    for n, im in enumerate(images):
-        cx = n % cols
-        cy = n // cols
-        # top-left origin layout (matches GridHotspots Start Corner = Upper Left)
-        sheet.paste(im, (cx * w, cy * h))
-
-    buf = io.BytesIO()
-    sheet.save(buf, format="PNG", optimize=True)
-    return buf.getvalue(), (w, h)
 
 @app.get("/update_sheet")
 def update_sheet(
-    q: str = Query(..., min_length=2),
-    cols: int = 3,
-    rows: int = 4,
-    page: int = 0
+    q: Optional[str] = Query(None, min_length=2),
+    page: Optional[int] = None,
+    cols: Optional[int] = None,
+    rows: Optional[int] = None
 ):
     """
-    Build and cache a (cols x rows) PNG sprite-sheet from current search results.
-    This does NOT return the image; it updates what /sheet.png will serve.
+    Rebuilds the cached sprite-sheet and returns a 1x1 PNG.
+    All params are OPTIONAL so Unity can call this with a fixed VRCUrl.
+    If q/page are omitted, the last-known state is used.
     """
-    try:
-        need = (page + 1) * max(1, cols * rows)
-        data = search(q=q, max_results=min(need, 25))
-        results = data.get("results", [])
-        png, cell = _build_sheet_from_results(results, cols, rows, page=page)
-        global _current_sheet_png, _current_meta
-        _current_sheet_png = png
-        _current_meta = {"q": q, "cols": int(cols), "rows": int(rows), "at": int(os.times().elapsed * 1000)}
-        # tell proxies/clients not to cache this control response
-        headers = {"Cache-Control": "no-store"}
-        return JSONResponse({"ok": True, **_current_meta, "cell_w": cell[0], "cell_h": cell[1]}, headers=headers)
-    except HTTPException:
-        raise
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"build_error: {type(ex).__name__}: {ex}")
+    global COLS, ROWS, _current_sheet_png, _current_meta
+
+    # update state from params if provided
+    if q is not None:
+        set_state(q=q)
+    if page is not None:
+        set_state(page=page)
+    if cols is not None:
+        COLS = max(1, int(cols))
+    if rows is not None:
+        ROWS = max(1, int(rows))
+
+    # rebuild (blocking) using current state
+    png, (cw, ch) = _rebuild_sheet(LAST_Q, LAST_PAGE, COLS, ROWS)
+    _current_sheet_png = png
+    _current_meta = {"q": LAST_Q, "cols": COLS, "rows": ROWS, "page": LAST_PAGE, "at": int(time.time() * 1000)}
+
+    # tiny PNG so it works with VRCImageDownloader
+    return Response(content=_TRANSPARENT_PNG, media_type="image/png", headers={"Cache-Control": "no-store"})
 
 @app.get("/sheet.png")
 def sheet_png():
     """
     Serve the latest generated sheet as a direct PNG.
-    Bake THIS URL into your Unity VRCUrl field.
+    Bake THIS URL into Unity as SheetUrl.
     """
     if _current_sheet_png is None:
-        # Return a 1x1 transparent PNG until the first update runs
-        return Response(content=_TRANSPARENT_PNG, media_type="image/png",
-                        headers={"Cache-Control": "no-store"})
-    return Response(content=_current_sheet_png, media_type="image/png",
-                    headers={
-                        "Cache-Control": "no-store",  # ensure clients re-request
-                        "X-Sheet-Query": _current_meta.get("q", ""),
-                        "X-Sheet-Cols": str(_current_meta.get("cols", 3)),
-                        "X-Sheet-Rows": str(_current_meta.get("rows", 4)),
-                    })
-
-
-
+        # build once from default state so the very first view isn't empty
+        try:
+            png, _ = _rebuild_sheet(LAST_Q, LAST_PAGE, COLS, ROWS)
+            _current_sheet_png = png
+        except Exception:
+            return Response(content=_TRANSPARENT_PNG, media_type="image/png", headers={"Cache-Control": "no-store"})
+    return Response(
+        content=_current_sheet_png,
+        media_type="image/png",
+        headers={
+            "Cache-Control": "no-store",
+            "X-Sheet-Query": LAST_Q,
+            "X-Sheet-Cols": str(COLS),
+            "X-Sheet-Rows": str(ROWS),
+            "X-Sheet-Page": str(LAST_PAGE),
+        },
+    )

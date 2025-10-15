@@ -256,6 +256,8 @@ def sheet_png():
     Serve the latest generated sheet as a direct PNG.
     Bake THIS URL into Unity as SheetUrl.
     """
+    global _current_sheet_png  # <-- needed because we assign to it below
+
     if _current_sheet_png is None:
         # build once from default state so the very first view isn't empty
         try:
@@ -263,6 +265,7 @@ def sheet_png():
             _current_sheet_png = png
         except Exception:
             return Response(content=_TRANSPARENT_PNG, media_type="image/png", headers={"Cache-Control": "no-store"})
+
     return Response(
         content=_current_sheet_png,
         media_type="image/png",

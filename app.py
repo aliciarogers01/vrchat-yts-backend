@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import RedirectResponse, Response, JSONResponse
 from pydantic import BaseModel
-import os, re, io, json, random, urllib.request, urllib.parse
+import os, re, io, json, urllib.request, urllib.parse
 from PIL import Image, ImageDraw, ImageFont
 import yt_dlp
+from typing import List, Tuple
 
 app = FastAPI()
 
@@ -94,10 +95,17 @@ def _playable_url_from_id(yt_id: str, prefer: str = "720") -> str | None:
 
     return info2.get("url")
 
-# --------------------------- Endpoints ------------------------
+# --------------------------- Endpoints (Existing) ------------------------
 @app.get("/")
 def root():
-    return {"ok": True, "endpoints": ["/healthz", "/search", "/search_grid_thumb", "/thumb", "/resolve", "/resolve_index", "/search_grid"]}
+    return {
+        "ok": True,
+        "endpoints": [
+            "/healthz", "/search", "/search_grid_thumb", "/thumb",
+            "/resolve", "/resolve_index", "/search_grid",
+            "/update_sheet", "/sheet.png"
+        ]
+    }
 
 @app.get("/healthz")
 def healthz():
@@ -188,17 +196,14 @@ def search_grid_thumb(
 ):
     """
     Return the thumbnail for the i-th cell in a (cols x rows) page of results as an IMAGE.
-    This endpoint now returns actual JPEG bytes by default (works with VRCImageDownloader).
+    This endpoint returns actual JPEG bytes by default (works with VRCImageDownloader).
     """
-    # how many results needed for this page:
     per_page = max(1, cols * rows)
-    # fetch enough to cover pages up to 'page'
     need = (page + 1) * per_page
 
-    data = search(q=q, max_results=min(need, 25))  # YT API caps at 50; we're using <=25
+    data = search(q=q, max_results=min(need, 25))
     results = data.get("results", [])
 
-    # compute absolute index for this page
     idx = page * per_page + i
     if idx < 0 or idx >= len(results):
         raise HTTPException(status_code=404, detail="index_out_of_range")
@@ -313,5 +318,97 @@ def search_grid(q: str = Query(..., min_length=2), page: int = 0):
     buf = io.BytesIO()
     img.save(buf, format="PNG")
     return Response(content=buf.getvalue(), media_type="image/png")
+
+# ---------------- NEW: Sprite-sheet builder + fixed image endpoint ----------------
+
+# 1x1 transparent PNG to serve before first update (so VRC gets an image, not an error)
+_TRANSPARENT_PNG = bytes.fromhex(
+    "89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c489"
+    "0000000a49444154789c636000000200010005fe02fea7c6a90000000049454e44ae426082"
+)
+
+_current_sheet_png: bytes | None = None
+_current_meta = {"q": "", "cols": 3, "rows": 4, "at": 0}
+
+def _fetch_image(url: str) -> Image.Image:
+    with _urlopen(url, timeout=15) as resp:
+        data = resp.read()
+    img = Image.open(io.BytesIO(data))
+    # convert to RGB for consistent paste
+    return img.convert("RGB")
+
+def _build_sheet_from_results(results: List[dict], cols: int, rows: int, page: int = 0) -> Tuple[bytes, Tuple[int,int]]:
+    per = cols * rows
+    start = page * per
+    picks = results[start:start + per]
+    if len(picks) < per:
+        raise HTTPException(status_code=404, detail="not_enough_results")
+
+    # pull images
+    images: List[Image.Image] = []
+    for item in picks:
+        url = item.get("thumb") or _thumb_url(item["id"], "mq")
+        images.append(_fetch_image(url))
+
+    # normalize sizes to first image
+    w, h = images[0].size
+    images = [im if im.size == (w, h) else im.resize((w, h), Image.LANCZOS) for im in images]
+
+    sheet = Image.new("RGB", (w * cols, h * rows))
+    for n, im in enumerate(images):
+        cx = n % cols
+        cy = n // cols
+        # top-left origin layout (matches GridHotspots Start Corner = Upper Left)
+        sheet.paste(im, (cx * w, cy * h))
+
+    buf = io.BytesIO()
+    sheet.save(buf, format="PNG", optimize=True)
+    return buf.getvalue(), (w, h)
+
+@app.get("/update_sheet")
+def update_sheet(
+    q: str = Query(..., min_length=2),
+    cols: int = 3,
+    rows: int = 4,
+    page: int = 0
+):
+    """
+    Build and cache a (cols x rows) PNG sprite-sheet from current search results.
+    This does NOT return the image; it updates what /sheet.png will serve.
+    """
+    try:
+        need = (page + 1) * max(1, cols * rows)
+        data = search(q=q, max_results=min(need, 25))
+        results = data.get("results", [])
+        png, cell = _build_sheet_from_results(results, cols, rows, page=page)
+        global _current_sheet_png, _current_meta
+        _current_sheet_png = png
+        _current_meta = {"q": q, "cols": int(cols), "rows": int(rows), "at": int(os.times().elapsed * 1000)}
+        # tell proxies/clients not to cache this control response
+        headers = {"Cache-Control": "no-store"}
+        return JSONResponse({"ok": True, **_current_meta, "cell_w": cell[0], "cell_h": cell[1]}, headers=headers)
+    except HTTPException:
+        raise
+    except Exception as ex:
+        raise HTTPException(status_code=500, detail=f"build_error: {type(ex).__name__}: {ex}")
+
+@app.get("/sheet.png")
+def sheet_png():
+    """
+    Serve the latest generated sheet as a direct PNG.
+    Bake THIS URL into your Unity VRCUrl field.
+    """
+    if _current_sheet_png is None:
+        # Return a 1x1 transparent PNG until the first update runs
+        return Response(content=_TRANSPARENT_PNG, media_type="image/png",
+                        headers={"Cache-Control": "no-store"})
+    return Response(content=_current_sheet_png, media_type="image/png",
+                    headers={
+                        "Cache-Control": "no-store",  # ensure clients re-request
+                        "X-Sheet-Query": _current_meta.get("q", ""),
+                        "X-Sheet-Cols": str(_current_meta.get("cols", 3)),
+                        "X-Sheet-Rows": str(_current_meta.get("rows", 4)),
+                    })
+
 
 

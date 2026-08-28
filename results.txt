@@ -1,5 +1,5 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-08-28T04:58:28.672Z - update via queries.json
+# generated 2026-08-28T05:05:20.085Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
@@ -8,9 +8,9 @@ O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 M4ZoCHID9GI|The Weeknd - Call Out My Name (Official Video)|The Weeknd
 
 == dance 2025 ==
-EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
-FcSjWMtQkCs|Popular Dance Trends Compiltion - January 2025 🎉 Part 1|One Challenge
-EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
+M4w74G1hLX4|Just Dance 2025 Edition - Songlist Trailer|Just Dance
+N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
+zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
@@ -19,10 +19,10 @@ bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, 
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-AqGpeAXuaTc|It’s 1993 and you’re in a hotel pool (Vaporwave Mix)|Retro Player One
-QPAHVS-e1NM|Midnight Television (Vaporwave Mix + Video)|SPLIFF RADIOショー
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
+FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-oL8M98Hanyo|Pulse ¦ Vocal Synthwave Mix|Sequencer
+E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl

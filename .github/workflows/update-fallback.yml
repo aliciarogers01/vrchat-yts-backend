@@ -1,0 +1,49 @@
+# Place inside your GitHub repo at: .github/workflows/update-fallback.yml
+#
+# Publishes the YTS Tablet fallback board to GitHub Pages.
+#
+# One-time GitHub settings for the repo (Settings > Pages):
+#   Source: "Deploy from a branch", Branch: main, folder: / (root)
+#
+# Then the tablet's fallback board URL becomes:
+#   https://<your-username>.github.io/<your-repo>/results.txt
+#
+# Triggers: every 6 hours, on push, or manually (Actions > update-fallback >
+# "Run workflow").
+
+name: Update Fallback Results
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Regenerate results.txt
+        run: node update-fallback.mjs
+
+      - name: Commit updated board
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add results.txt
+          if git diff --cached --quiet; then
+            echo "No changes - board is up to date."
+          else
+            git commit -m "chore: update YTS tablet fallback board"
+            git push origin main
+          fi

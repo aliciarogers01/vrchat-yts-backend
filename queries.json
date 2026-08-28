@@ -1,0 +1,10 @@
+{
+  "queries": [
+    "the weeknd",
+    "dance 2025",
+    "reggaeton hits",
+    "vaporwave",
+    "synthwave mix"
+  ],
+  "limitPerQuery": 3
+}

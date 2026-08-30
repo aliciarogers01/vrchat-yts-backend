@@ -1,5 +1,5 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-08-30T03:10:54.749Z - update via queries.json
+# generated 2026-08-30T11:05:24.805Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
@@ -8,21 +8,21 @@ O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 qFLhGq0060w|The Weeknd - I Feel It Coming ft. Daft Punk (Official Video)|The Weeknd
 
 == dance 2025 ==
-FcSjWMtQkCs|Popular Dance Trends Compiltion - January 2025 🎉 Part 1|One Challenge
-r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
-EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
+N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
+RsyWbHgcFZU|SpongeBob’s Birthday   Just Dance 2025 Edition (Switch)|Mutch Games
+zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+-D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
-5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
+nli9sZhWgtM|5 Hours Of Smooth Weather Channel Vaporwave   Smooth Jazz|Weatherline International
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-0glfAPfSHmc|N I G H T    W A R R I O R    - A NewRetroWave Mix   1 Hour   Synthwave/ Retrowave/ Darksynth|NewRetroWave
-QqjVD-qPZ3M|Synthwave Electric Mixtape I   For Study Relax|Holod-TV
+C-5B7dUhNfU|Voyage 9 (Chillwave - Synthwave - Electronic Mix)|SoulSearchAndDestroy
+E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED

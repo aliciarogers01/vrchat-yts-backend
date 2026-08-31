@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-08-30T20:25:08.896Z - update via queries.json
+# generated 2026-08-31T03:05:16.972Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
+S3ncfrQPpjs|The Weeknd, Lana Del Rey - The Abyss (Audio)|The Weeknd
+15bVfGgwAGU|The Weeknd - Dancing In The Flames (Live from São Paulo)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-qFLhGq0060w|The Weeknd - I Feel It Coming ft. Daft Punk (Official Video)|The Weeknd
 
 == dance 2025 ==
-r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
 EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+wiHPbzpeeyI|TOP 10 Dance Auditions Of 2025|Got Talent Shorts
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
--D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
 ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-0glfAPfSHmc|N I G H T    W A R R I O R    - A NewRetroWave Mix   1 Hour   Synthwave/ Retrowave/ Darksynth|NewRetroWave
 E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED
+_Gajv2yJt5M|𝟭𝟵𝟵𝟵 𝗗𝗥𝗜𝗙𝗧 𝗜𝗡𝗧𝗢 𝗠𝗘𝗠𝗢𝗥𝗬 // Synthwave, Vaporwave, Cyberpunk, Chillwave, Retrowave, Dreamwave Playlist|Moebius FM

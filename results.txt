@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-08-31T22:18:41.126Z - update via queries.json
+# generated 2026-09-01T03:11:01.380Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-j1ngEIxopUU|The Weeknd - Tell Your Friends (Official Video)|The Weeknd
-e-9ZwGk9FDk|Acquainted|The Weeknd
+O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
+8ex38L8xtNI|The Weeknd - House Of Balloons / Glass Table Girls|The Weeknd
 
 == dance 2025 ==
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
-r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
-XVwkT6iXnXs|Tiktok Mashup May 💙2025💙 (Not Clean)|Sun Mashup
+N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
+zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
+pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+9d1x85ePscY|Reggaeton Mix Latino Vibes 2025 🔥 J Balvin, Anuel AA, Becky G, Ozuna, Nicky Jam, Shakira, Rosalia|Tropical Bull Media
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
-6kNqw7UdENg|Nobody Here   'The Story Of Vaporwave' [2026] - Full Movie|My Pet Flamingo
+nli9sZhWgtM|5 Hours Of Smooth Weather Channel Vaporwave   Smooth Jazz|Weatherline International
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-Hc_SEDzN23o|Voyage 5 (Chillwave - Synthwave - Retrowave Mix)|SoulSearchAndDestroy
-E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED
+4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
+QqjVD-qPZ3M|Synthwave Electric Mixtape I   For Study Relax|Holod-TV

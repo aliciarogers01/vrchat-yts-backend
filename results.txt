@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-04T10:24:44.791Z - update via queries.json
+# generated 2026-09-04T15:37:55.259Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+uHs1LlKspD8|The Weeknd Playlist - Night Drive|NightDrive FM 𖣂
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-PD-b9gfUXvI|The Very Best of The Weeknd – Fan Favorites|SonixLab
 
 == dance 2025 ==
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
 N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
-pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
+zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
+IUlzh6DIKgQ|DJ SONG MIX 2026 - Remixes & Mashups of Popular Songs 2026   DJ Remix Club Music Disco Dance 2025|Valentino Sirolli
 
 == reggaeton hits ==
-bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
-CmrV-BW6BEY|Reggaeton Mix 2017|Diggy Gets satisfied
+bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
+9d1x85ePscY|Reggaeton Mix Latino Vibes 2025 🔥 J Balvin, Anuel AA, Becky G, Ozuna, Nicky Jam, Shakira, Rosalia|Tropical Bull Media
 
 == vaporwave ==
-ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
 xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
+FZUfiW3W1KY|NEON PALM MALL (Vaporwave Mix + Video)|SPLIFF RADIOショー
+tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-0glfAPfSHmc|N I G H T    W A R R I O R    - A NewRetroWave Mix   1 Hour   Synthwave/ Retrowave/ Darksynth|NewRetroWave
+E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl

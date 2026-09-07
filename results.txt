@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-06T19:53:26.691Z - update via queries.json
+# generated 2026-09-07T02:28:52.798Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-L0YmZF8jxik|The Weeknd - Earned It (Lyrics)|Taj Tracks
+yI-zb_aP0So|The Weeknd - The Party & The After Party|The Weeknd
 
 == dance 2025 ==
-zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
-Ds7dfLGXHls|TOP 5 Most Popular Tiktok Mashup Challenge Dance Compilation - October 2025|One Challenge
-pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
+EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
+r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 
 == reggaeton hits ==
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
-9d1x85ePscY|Reggaeton Mix Latino Vibes 2025 🔥 J Balvin, Anuel AA, Becky G, Ozuna, Nicky Jam, Shakira, Rosalia|Tropical Bull Media
-vdQT_TNTqqE|Party Songs Mix Reggaeton  🎶 Beat Reggaeton Shakira, Daddy Yankee, , Bad Bunny, Karol G Music Style|Latino Mix
+kf3xsThsf5Q|Mix Reggaeton Hits 2026🔥Inspired by Alofoke music   Urban Pop Dembow & Modern Reggaeton Playlist❤️‍🔥|Mr.Moordeen
+16_NbW1YXPg|Reggaeton Throwbacks: Best 2000's Hits! 🔥🎶   Classic Reggaeton|DJ Linuxxx
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
 5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
+xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-QqjVD-qPZ3M|Synthwave Electric Mixtape I   For Study Relax|Holod-TV
-E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED
+lAAI1p37XOo|The Midnight Mix vol. 1   Chill Synthwave Playlist|Jonathan Belle
+4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl

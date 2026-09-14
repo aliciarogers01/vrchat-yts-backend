@@ -1,16 +1,16 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-14T17:28:59.641Z - update via queries.json
+# generated 2026-09-14T21:19:48.084Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-PD-b9gfUXvI|The Very Best of The Weeknd – Fan Favorites|SonixLab
+yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+9rhadTURsrw|The Weeknd’s FULL Pepsi Super Bowl LV Halftime Show|NFL
 
 == dance 2025 ==
 mzUEdFiXXa4|DJ REMIX MIX 2026 - Remixes & Mashups of Popular Songs 2026   DJ Remix Club Music Disco Dance 2025|Valentino Sirolli
 N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
-FcSjWMtQkCs|Popular Dance Trends Compiltion - January 2025 🎉 Part 1|One Challenge
+4d1v1dAlVxI|Tiktok Mashup 2026 - If you know These Songs your a genius! 🧠❤️|One TikTok Mashup
 
 == reggaeton hits ==
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
@@ -20,9 +20,9 @@ qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
-AqGpeAXuaTc|It’s 1993 and you’re in a hotel pool (Vaporwave Mix)|Retro Player One
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED
-Hc_SEDzN23o|Voyage 5 (Chillwave - Synthwave - Retrowave Mix)|SoulSearchAndDestroy
+QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers
+QqjVD-qPZ3M|Synthwave Electric Mixtape I   For Study Relax|Holod-TV

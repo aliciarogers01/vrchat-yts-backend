@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-15T16:05:09.762Z - update via queries.json
+# generated 2026-09-15T20:46:48.935Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-PD-b9gfUXvI|The Very Best of The Weeknd – Fan Favorites|SonixLab
+4NRXx6U8ABQ|The Weeknd - Blinding Lights (Official Video)|The Weeknd
 
 == dance 2025 ==
-FcSjWMtQkCs|Popular Dance Trends Compiltion - January 2025 🎉 Part 1|One Challenge
-EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
-zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
+N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
+9Vti9E-TASg|Tomorrowland 2025 (David Guetta, Martin Garrix, Tiesto, Meduza, Avicii, Axwell, Gigi D'Agostino)|Dj Remo
+4d1v1dAlVxI|Tiktok Mashup 2026 - If you know These Songs your a genius! 🧠❤️|One TikTok Mashup
 
 == reggaeton hits ==
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 -D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-QRMPfEnltdM|Employee of The Month - Vaporwave Mix|Sega64
-FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
+SolEjKrcg4E|Vaporwave / Chillwave - Ultimate Mix|EGT Media
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
 E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED
-4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
+0QKQlf8r7ls|'Back To The 80's'   Marvel83' Edition   Best of Synthwave And Retro Electro Music Mix|ThePrimeThanatos

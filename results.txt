@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-17T20:52:24.937Z - update via queries.json
+# generated 2026-09-18T02:49:02.855Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
+yI-zb_aP0So|The Weeknd - The Party & The After Party|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-5EpyN_6dqyk|The Weeknd, Playboi Carti - Timeless|The Weeknd
 
 == dance 2025 ==
-zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
-r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
-pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
+KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+l5gVdUfTvLs|Best TIKTOK MASHUP 2025 #tiktokmashup|EabraK
+N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
 
 == reggaeton hits ==
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
--D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
 qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+-D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-AqGpeAXuaTc|It’s 1993 and you’re in a hotel pool (Vaporwave Mix)|Retro Player One
-WTXq7oy2XoQ|Ａｅｓｔｈｅｔｉｃ Ｄｒｅａｍｓ    A Vaporwave Journey Vol.1|Dusk88
+tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
+FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
 
 == synthwave mix ==
+4sCfII4S3Vw|Radio Silence (Chillwave - Synthwave - Electronic Mix)|SoulSearchAndDestroy
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers
 E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED

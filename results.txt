@@ -1,5 +1,5 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-20T20:11:02.965Z - update via queries.json
+# generated 2026-09-21T02:57:05.083Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
@@ -9,8 +9,8 @@ yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 
 == dance 2025 ==
 KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
 zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
-q5UbDDbsqG0|POPULAR Tiktok Mashup 2025  MOST ICONIC TIKTOK DANCE Part 2 #tiktok #dance|ℛ
 
 == reggaeton hits ==
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
@@ -19,10 +19,10 @@ qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-B1BVfNK1yzQ|Saint Pepsi Greatest Hits - Vaporwave Mix|nostalgia.mp4
-4ozXwgGFr7k|Zen TV 🌦️ (Frutiger Aero / Vaporwave Mix)|ArpWire TV
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
+FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers
+4sCfII4S3Vw|Radio Silence (Chillwave - Synthwave - Electronic Mix)|SoulSearchAndDestroy
 E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED

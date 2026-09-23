@@ -1,26 +1,26 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-22T20:46:51.718Z - update via queries.json
+# generated 2026-09-23T02:57:18.729Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
+yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 4NRXx6U8ABQ|The Weeknd - Blinding Lights (Official Video)|The Weeknd
 
 == dance 2025 ==
-e4ZvD70RgJk|The Clan   1st Place Team Division   World of Dance Sydney 2025   #WODsydney25|Official World of Dance
-wiHPbzpeeyI|TOP 10 Dance Auditions Of 2025|Got Talent Shorts
 KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
+r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
 
 == reggaeton hits ==
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
--D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
 qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+-D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-nGa4FDkWZPQ|Cities That Breathe (Vaporwave Mix)|Jason Sanders
-AqGpeAXuaTc|It’s 1993 and you’re in a hotel pool (Vaporwave Mix)|Retro Player One
+FZUfiW3W1KY|NEON PALM MALL (Vaporwave Mix + Video)|SPLIFF RADIOショー
+xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

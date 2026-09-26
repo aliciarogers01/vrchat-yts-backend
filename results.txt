@@ -1,26 +1,26 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-25T21:00:48.266Z - update via queries.json
+# generated 2026-09-26T03:08:06.398Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-uHs1LlKspD8|The Weeknd Playlist - Night Drive|NightDrive FM 𖣂
-A4WgT0QOXhs|THE WEEKND - SÃO PAULO LIVESTREAM|The Weeknd
+yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+qFLhGq0060w|The Weeknd - I Feel It Coming ft. Daft Punk (Official Video)|The Weeknd
 
 == dance 2025 ==
 r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
-wiHPbzpeeyI|TOP 10 Dance Auditions Of 2025|Got Talent Shorts
 pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
+wiHPbzpeeyI|TOP 10 Dance Auditions Of 2025|Got Talent Shorts
 
 == reggaeton hits ==
-gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
+gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
-AqGpeAXuaTc|It’s 1993 and you’re in a hotel pool (Vaporwave Mix)|Retro Player One
+xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
+tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

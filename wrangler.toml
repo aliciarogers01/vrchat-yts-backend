@@ -1,0 +1,20 @@
+name = "hinders-ytsearch"
+main = "cloudflare-worker.js"
+compatibility_date = "2026-09-29"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[[kv_namespaces]]
+binding = "SLOTS"
+id = "40947592e45d44a59f35a1b7e1808a00"
+
+[[durable_objects.bindings]]
+name = "SLOT_STORE"
+class_name = "SlotStore"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SlotStore"]

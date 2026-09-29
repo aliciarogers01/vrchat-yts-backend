@@ -1,6 +1,10 @@
 # vrchat-yts-backend
 
-Free, no-API-key backend for the **Hinders Nightclub YTS Tablet**.
+Free, no-API-key backend for the **Hinders Nightclub shared media queue**.
+
+This is the authoritative backend repository for the in-world Video/YTS,
+Movies, Audio, and Radio searches. The Unity world itself lives in
+[`aliciarogers01/HindersNightclub`](https://github.com/aliciarogers01/HindersNightclub).
 
 The tablet currently behaves like this:
 
@@ -9,7 +13,31 @@ The tablet currently behaves like this:
 - **Fallback board** (always available): a whitelisted static `results.txt`
   served from GitHub Pages loads for every visitor with zero settings.
 
-This repo powers both.
+This repo powers both, plus the multi-source media catalog used by the personal
+panel. Movies/TV/Anime supplied by the bundled MediaUI browser still resolve
+through MediaUI, but they enter the same Hinders queue and player.
+
+---
+
+## Shared media routes
+
+The Cloudflare Worker keeps the legacy YTS contract and adds stable,
+short-lived media slots backed by a Durable Object:
+
+- `GET /wsearch?q=<query>&limit=<1-20>` — slotted YouTube search.
+- `GET /msearch?category=<all|youtube|movies|audio|radio>&q=<query>&limit=<1-20>` — multi-source search.
+- `GET /yt/<slot>` and `GET /tn/<slot>` — legacy YouTube playback and thumbnail redirects.
+- `GET /media/play/<slot>` and `GET /media/thumb/<slot>` — multi-source playback and thumbnail routes.
+
+The `/msearch` response is plain text in the VRChat tablet format:
+
+```text
+<slot>|<source-id>|<title>|<source/channel>
+|END
+```
+
+The Worker accepts only public HTTPS media URLs, bounds upstream downloads,
+and never operates as an arbitrary URL proxy.
 
 ---
 
@@ -34,7 +62,7 @@ Test:
 https://<your-service>.onrender.com/search?q=the+weeknd&limit=6
 ```
 
-### Cloudflare Worker (alternative, free) - `cloudflare-worker.js`
+### Cloudflare Worker (primary) - `cloudflare-worker.js`
 
 Same contract, different host. Requires a free Cloudflare account:
 ```
@@ -42,7 +70,9 @@ npm i -g wrangler
 wrangler login
 wrangler deploy cloudflare-worker.js --name hinders-ytsearch
 ```
-Result: `https://hinders-ytsearch.<your-subdomain>.workers.dev`
+The checked-in `wrangler.toml` describes the deployed
+`hinders-ytsearch` Worker, its legacy KV binding, and the `SlotStore`
+SQLite-backed Durable Object used by shared media slots.
 
 ### Whitelist caveat (live search)
 
@@ -91,8 +121,11 @@ Run locally: `node update-fallback.mjs`.
 
 ## Files
 
-- `app.py` / `ysearch.py` - live search (Render free, tablet contract).
-- `cloudflare-worker.js` - live search (Cloudflare Worker, tablet contract).
+- `app.py` / `ysearch.py` - legacy YouTube-only Render fallback.
+- `cloudflare-worker.js` - live YTS and multi-source Worker.
+- `media-sources.js` - public media adapters and URL validation.
+- `wrangler.toml` - Worker, KV, and Durable Object bindings/migration.
+- `tests/` - source, slot-allocation, and live HTTP checks.
 - `update-fallback.mjs` / `queries.json` - board generator.
 - `.github/workflows/update-fallback.yml` - scheduled board refresh.
 - `results.txt` - generated board.

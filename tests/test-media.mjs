@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+const text=await readFile(new URL('../media-sources.js',import.meta.url),'utf8');
+const m=await import('data:text/javascript;base64,'+Buffer.from(text).toString('base64'));
+assert.equal(m.publicHttps('http://example.com/a'),null);assert.equal(m.publicHttps('https://127.0.0.1/a'),null);assert.equal(m.publicHttps('https://user:pass@example.com'),null);assert(m.publicHttps('https://archive.org/download/x/x.mp4'));
+assert.equal(m.selectArchiveFile([{name:'secret.mp4',private:true},{name:'film.mp4',size:100},{name:'big.mp4',size:200}], 'movies').name,'film.mp4');
+assert.equal(m.selectArchiveFile([{name:'audio.mp3'},{name:'page.html'}],'audio').name,'audio.mp3');
+assert.deepEqual(m.interleave([[1,2],[3,4],[5]],4),[1,3,5,2]);
+const original=globalThis.fetch;globalThis.fetch=async url=>{if(String(url).includes('radio-browser'))return Response.json([{stationuuid:'r',name:'Jazz Radio',lastcheckok:1,codec:'MP3',url_resolved:'https://radio.example.org/live',country:'US'}]);if(String(url).includes('advancedsearch'))return Response.json({response:{docs:[{identifier:'test',title:'Film',creator:'Creator'}]}});return Response.json({files:[{name:'film.mp4',size:100},{name:'music.mp3',size:100}],metadata:{}});};
+const result=await m.multiSearch('jazz','all',20,async()=>{throw new Error('YouTube failed');});assert(result.rows.some(r=>r.source==='movies'));assert(result.rows.some(r=>r.source==='audio'));assert(result.rows.some(r=>r.source==='radio'));assert.deepEqual(result.unavailable,['youtube']);
+globalThis.fetch=original;console.log('PASS: HTTPS validation, media file selection, mixed-source interleaving, YouTube failure isolation');

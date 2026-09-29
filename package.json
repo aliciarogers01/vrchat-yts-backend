@@ -1,0 +1,14 @@
+{
+  "name": "hinders-vrchat-yts-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/test-media.mjs && node tests/test-media-slots.mjs",
+    "test:live": "node tests/test-media-http.mjs https://hinders-ytsearch.aleigh0435.workers.dev",
+    "dev": "wrangler dev --port 8791",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

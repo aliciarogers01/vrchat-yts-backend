@@ -1,16 +1,16 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-09-28T22:52:23.053Z - update via queries.json
+# generated 2026-09-29T03:49:38.911Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-9CbQl98JEbE|The Weeknd - In The Night (Official Audio)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+JZjAg6fK-BQ|The Weeknd - Reminder (Official Video)|The Weeknd
 
 == dance 2025 ==
-wpetCdwcQ5A|DJ REMIX SONG 2026 - Remixes & Mashups of Popular Songs 2026   DJ Remix Club Music Disco Dance 2025|Valentino Sirolli
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
 N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
+KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+l5gVdUfTvLs|Best TIKTOK MASHUP 2025 #tiktokmashup|EabraK
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
@@ -18,9 +18,9 @@ bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, 
 -D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
 
 == vaporwave ==
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
+ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
-tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
+xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

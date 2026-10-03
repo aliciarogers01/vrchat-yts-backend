@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-03T15:35:40.507Z - update via queries.json
+# generated 2026-10-03T20:30:28.682Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 uHs1LlKspD8|The Weeknd Playlist - Night Drive|NightDrive FM 𖣂
+O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 
 == dance 2025 ==
-pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
-Elt0ZQo5bHY|Music Mix 2025   Party Club Dance 2025   Best Remixes Of Popular Songs 2025 MEGAMIX (DJ Silviu M)|Dj Silviu M Official
-r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
+XVwkT6iXnXs|Tiktok Mashup May 💙2025💙 (Not Clean)|Sun Mashup
+FcSjWMtQkCs|Popular Dance Trends Compiltion - January 2025 🎉 Part 1|One Challenge
+_Wg7LWQ-uZc|TIKTOK DANCE MASHUP 2025   Trending Dance Compilation - SEPTEMBER 2025   Part 1  #tiktok #dance|CHALA VIDZ
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+-D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
 
 == vaporwave ==
-ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-WTXq7oy2XoQ|Ａｅｓｔｈｅｔｉｃ Ｄｒｅａｍｓ    A Vaporwave Journey Vol.1|Dusk88
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
+_psqZ5ciP30|Ｌａｔｅ　Ｎｉｇｈｔ　Ｏｆｆｉｃｅ // vaporwave, dreamwave, officewave|utopic.dreamer
+AqGpeAXuaTc|It’s 1993 and you’re in a hotel pool (Vaporwave Mix)|Retro Player One
+KpRf30KEx0A|'93 INTERNATIONAL WEATHER CHANNEL VAPORWAVE // 1990s VHS Vaporwave Nostalgia|utopic.dreamer
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
-UedTcufyrHc|ChillSynth FM - lofi synthwave radio for retro dreaming|Nightride FM
+_Gajv2yJt5M|𝟭𝟵𝟵𝟵 𝗗𝗥𝗜𝗙𝗧 𝗜𝗡𝗧𝗢 𝗠𝗘𝗠𝗢𝗥𝗬 // Synthwave, Vaporwave, Cyberpunk, Chillwave, Retrowave, Dreamwave Playlist|Moebius FM

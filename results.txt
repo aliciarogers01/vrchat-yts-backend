@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-05T13:23:19.423Z - update via queries.json
+# generated 2026-10-05T23:37:06.653Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-PD-b9gfUXvI|The Very Best of The Weeknd – Fan Favorites|SonixLab
+yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+uHs1LlKspD8|The Weeknd Playlist - Night Drive|NightDrive FM 𖣂
 
 == dance 2025 ==
-EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
+fsakOp-4fTs|DJ REMIX MIX 2026 - Remixes & Mashups of Popular Songs 2026   DJ Remix Club Music Disco Dance 2025|Valentino Sirolli
 iOQ2RpKpLEU|ASTRONOMIA DANCING    TUZELITY SHUFFLE CHALLENGE    TIKTOK DANCE TREND 2025|Tuzelity Shuffle Challenge
 
 == reggaeton hits ==
-bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
+bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
-tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
+xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
+1pI8UKZ98Bw|oh finally, '90s autumn is here // calm vaporwave with VHS visuals|utopic.dreamer
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
-0QKQlf8r7ls|'Back To The 80's'   Marvel83' Edition   Best of Synthwave And Retro Electro Music Mix|ThePrimeThanatos
+Hc_SEDzN23o|Voyage 5 (Chillwave - Synthwave - Retrowave Mix)|SoulSearchAndDestroy

@@ -1,16 +1,16 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-04T20:47:12.451Z - update via queries.json
+# generated 2026-10-05T03:39:44.693Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-4NRXx6U8ABQ|The Weeknd - Blinding Lights (Official Video)|The Weeknd
+O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
+yI-zb_aP0So|The Weeknd - The Party & The After Party|The Weeknd
 
 == dance 2025 ==
 r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
 KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
-EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
+zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
 
 == reggaeton hits ==
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
@@ -19,10 +19,10 @@ gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNA
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-QRMPfEnltdM|Employee of The Month - Vaporwave Mix|Sega64
+aQkPcPqTq4M|MACINTOSH PLUS - リサフランク420 / 現代のコンピュー  (reupload)|ChocolateGinger
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
 
 == synthwave mix ==
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-0glfAPfSHmc|N I G H T    W A R R I O R    - A NewRetroWave Mix   1 Hour   Synthwave/ Retrowave/ Darksynth|NewRetroWave
+4sCfII4S3Vw|Radio Silence (Chillwave - Synthwave - Electronic Mix)|SoulSearchAndDestroy

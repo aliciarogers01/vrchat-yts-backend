@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-06T22:11:28.514Z - update via queries.json
+# generated 2026-10-07T03:53:52.342Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
+uSAQs3ticXA|[𝚕𝚊𝚝𝚎 𝚗𝚒𝚐𝚑𝚝] 𝚝𝚑𝚎 𝚠𝚎𝚎𝚔𝚗𝚍 𝚙𝚕𝚊𝚢𝚕𝚒𝚜𝚝 ~ 𝓬𝓱𝓲𝓵𝓵/𝓻𝓮𝓵𝓪𝔁/𝓯𝓻𝓮𝓪𝓴𝔂|VibesFM
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-4NRXx6U8ABQ|The Weeknd - Blinding Lights (Official Video)|The Weeknd
 
 == dance 2025 ==
 zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
-EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
-FcSjWMtQkCs|Popular Dance Trends Compiltion - January 2025 🎉 Part 1|One Challenge
+r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
+pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
 
 == reggaeton hits ==
-bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
+bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
+ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
-nli9sZhWgtM|5 Hours Of Smooth Weather Channel Vaporwave   Smooth Jazz|Weatherline International
+mWVrucmgAFk|ＴＷＩＮ  ＴＯＷＥＲＳ [Vaporwave WTC mix] 𝟜𝕜 𝕦𝕡𝕤𝕔𝕒𝕝𝕖 ＶＨＳ archive|Aluminum Oxide
 
 == synthwave mix ==
-4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-_Gajv2yJt5M|𝟭𝟵𝟵𝟵 𝗗𝗥𝗜𝗙𝗧 𝗜𝗡𝗧𝗢 𝗠𝗘𝗠𝗢𝗥𝗬 // Synthwave, Vaporwave, Cyberpunk, Chillwave, Retrowave, Dreamwave Playlist|Moebius FM
+4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
+4sCfII4S3Vw|Radio Silence (Chillwave - Synthwave - Electronic Mix)|SoulSearchAndDestroy

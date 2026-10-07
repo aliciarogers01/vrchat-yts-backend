@@ -1,26 +1,26 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-07T12:30:42.556Z - update via queries.json
+# generated 2026-10-07T22:33:22.864Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-zW_50Obl7gs|THE WEEKND Greatest Hits 2026 🔥   Blinding Lights, Starboy, Die For You & More   Best Songs Playlist|Oximusic
+34Na4j8AVgA|The Weeknd - Starboy ft. Daft Punk (Official Video) ft. Daft Punk|The Weeknd
+4NRXx6U8ABQ|The Weeknd - Blinding Lights (Official Video)|The Weeknd
 
 == dance 2025 ==
-zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
-pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
-Elt0ZQo5bHY|Music Mix 2025   Party Club Dance 2025   Best Remixes Of Popular Songs 2025 MEGAMIX (DJ Silviu M)|Dj Silviu M Official
+KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
+4d1v1dAlVxI|Tiktok Mashup 2026 - If you know These Songs your a genius! 🧠❤️|One TikTok Mashup
 
 == reggaeton hits ==
-gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
--D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
+gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 1pI8UKZ98Bw|oh finally, '90s autumn is here // calm vaporwave with VHS visuals|utopic.dreamer
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
+ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
+FZUfiW3W1KY|NEON PALM MALL (Vaporwave Mix + Video)|SPLIFF RADIOショー
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

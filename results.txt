@@ -1,26 +1,26 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-07T22:33:22.864Z - update via queries.json
+# generated 2026-10-08T04:07:06.229Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-34Na4j8AVgA|The Weeknd - Starboy ft. Daft Punk (Official Video) ft. Daft Punk|The Weeknd
-4NRXx6U8ABQ|The Weeknd - Blinding Lights (Official Video)|The Weeknd
+yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+M4ZoCHID9GI|The Weeknd - Call Out My Name (Official Video)|The Weeknd
 
 == dance 2025 ==
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
 r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
-4d1v1dAlVxI|Tiktok Mashup 2026 - If you know These Songs your a genius! 🧠❤️|One TikTok Mashup
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 
 == reggaeton hits ==
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+-D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
 
 == vaporwave ==
-1pI8UKZ98Bw|oh finally, '90s autumn is here // calm vaporwave with VHS visuals|utopic.dreamer
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-FZUfiW3W1KY|NEON PALM MALL (Vaporwave Mix + Video)|SPLIFF RADIOショー
+tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
+FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

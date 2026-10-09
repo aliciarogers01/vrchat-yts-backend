@@ -1,15 +1,15 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-09T04:12:23.068Z - update via queries.json
+# generated 2026-10-09T12:27:26.008Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-yI-zb_aP0So|The Weeknd - The Party & The After Party|The Weeknd
+DgBM12cGM-Q|THE WEEKND   Late Night Drive Playlist|Jostynsc
 
 == dance 2025 ==
 KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
-iOQ2RpKpLEU|ASTRONOMIA DANCING    TUZELITY SHUFFLE CHALLENGE    TIKTOK DANCE TREND 2025|Tuzelity Shuffle Challenge
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
 
 == reggaeton hits ==
@@ -18,9 +18,9 @@ gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNA
 qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
-FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
+ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-Td2ToRjJUMg|ＣＡＬＭ　ＮＩＧＨＴ　１９９４ // Relaxing Ambient & Calm Vaporwave for a Deep Focus, Sleep, Relaxation|baby.murcielaga
+FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

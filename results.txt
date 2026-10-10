@@ -1,16 +1,16 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-09T22:08:44.794Z - update via queries.json
+# generated 2026-10-10T03:57:42.636Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-fHI8X4OXluQ|The Weeknd - Blinding Lights (Official Audio)|The Weeknd
+yI-zb_aP0So|The Weeknd - The Party & The After Party|The Weeknd
+f1r0XZLNlGQ|The Weeknd, JENNIE & Lily Rose Depp - One Of The Girls (Official Audio)|The Weeknd
 
 == dance 2025 ==
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
 EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
-4d1v1dAlVxI|Tiktok Mashup 2026 - If you know These Songs your a genius! 🧠❤️|One TikTok Mashup
+KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
 
 == reggaeton hits ==
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
@@ -23,6 +23,6 @@ xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS A
 ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
 
 == synthwave mix ==
-4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
+4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
 E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED

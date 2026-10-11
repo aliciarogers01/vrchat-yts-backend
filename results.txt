@@ -1,26 +1,26 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-11T11:58:40.908Z - update via queries.json
+# generated 2026-10-11T17:32:38.572Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-DgBM12cGM-Q|THE WEEKND   Late Night Drive Playlist|Jostynsc
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+M4ZoCHID9GI|The Weeknd - Call Out My Name (Official Video)|The Weeknd
 
 == dance 2025 ==
+r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
-Ym8hNu4DrgI|Global Dance Music 2025 Mix 🔥 Top 50 Most Listened Dance Songs 2025 HITS MIX|Global Records
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
--D96v69u5SU|Old School Reggaeton Mix   The Best of Old School Reggaeton by OSOCITY|OSOCITYNATION
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
-ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
+ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-FZUfiW3W1KY|NEON PALM MALL (Vaporwave Mix + Video)|SPLIFF RADIOショー
+ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
 
 == synthwave mix ==
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl

@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-15T02:51:35.322Z - update via queries.json
+# generated 2026-10-15T10:44:36.101Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-5EpyN_6dqyk|The Weeknd, Playboi Carti - Timeless|The Weeknd
+zW_50Obl7gs|THE WEEKND Greatest Hits 2026 🔥   Blinding Lights, Starboy, Die For You & More   Best Songs Playlist|Oximusic
+O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 
 == dance 2025 ==
-zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
 Ig1X82dF43s|DJ MIX 2026 - Remixes & Mashups of Popular Songs 2026   DJ Remix Club Music Disco Dance Dj Song 2025|Valentino Sirolli
+zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
 Ym8hNu4DrgI|Global Dance Music 2025 Mix 🔥 Top 50 Most Listened Dance Songs 2025 HITS MIX|Global Records
 
 == reggaeton hits ==
-gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
+kf3xsThsf5Q|Mix Reggaeton Hits 2026🔥Inspired by Alofoke music   Urban Pop Dembow & Modern Reggaeton Playlist❤️‍🔥|Mr.Moordeen
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
 WTXq7oy2XoQ|Ａｅｓｔｈｅｔｉｃ Ｄｒｅａｍｓ    A Vaporwave Journey Vol.1|Dusk88
+xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
 
 == synthwave mix ==
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
-QqjVD-qPZ3M|Synthwave Electric Mixtape I   For Study Relax|Holod-TV
+6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
 E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED

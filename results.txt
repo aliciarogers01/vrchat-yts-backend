@@ -1,15 +1,15 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-15T16:09:53.415Z - update via queries.json
+# generated 2026-10-15T20:51:03.416Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-8ex38L8xtNI|The Weeknd - House Of Balloons / Glass Table Girls|The Weeknd
+2fDzCWNS3ig|The Weeknd - Out of Time|The Weeknd
 
 == dance 2025 ==
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
-r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
 zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
 
 == reggaeton hits ==
@@ -19,10 +19,10 @@ qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-_anC_sQf-kQ|AESTHETIC FM    Vaporwave Radio • Synthwave • Retro • Ambient • Live 24/7 🎧|Smile Machine Music
-ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
+tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
 
 == synthwave mix ==
-4sCfII4S3Vw|Radio Silence (Chillwave - Synthwave - Electronic Mix)|SoulSearchAndDestroy
-6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
+E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED
+6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

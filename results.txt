@@ -1,16 +1,16 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-17T10:01:50.771Z - update via queries.json
+# generated 2026-10-17T14:50:22.674Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-M4ZoCHID9GI|The Weeknd - Call Out My Name (Official Video)|The Weeknd
+DgBM12cGM-Q|THE WEEKND   Late Night Drive Playlist|Jostynsc
+O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 
 == dance 2025 ==
-EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
-EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
-wiHPbzpeeyI|TOP 10 Dance Auditions Of 2025|Got Talent Shorts
+zEw3q5UeJ3c|DANCE REMIX 2025 - Top Remixes of Popular Songs 2025 - DJ Nightclub Party EDM Remix Mix 2024|EDM Ocean
+Ym8hNu4DrgI|Global Dance Music 2025 Mix 🔥 Top 50 Most Listened Dance Songs 2025 HITS MIX|Global Records
+KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
@@ -19,10 +19,10 @@ qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
+fBhz9bNmnJk|ｅｘｉｔｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #5   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
+nGa4FDkWZPQ|Cities That Breathe (Vaporwave Mix)|Jason Sanders
 
 == synthwave mix ==
+QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
 _Gajv2yJt5M|𝟭𝟵𝟵𝟵 𝗗𝗥𝗜𝗙𝗧 𝗜𝗡𝗧𝗢 𝗠𝗘𝗠𝗢𝗥𝗬 // Synthwave, Vaporwave, Cyberpunk, Chillwave, Retrowave, Dreamwave Playlist|Moebius FM
-yhCuCqJbOVE|ＣＹＢＥＲ　ＤＲＥＡＭ [Chillwave - Synthwave Mix]|Smooth S o u n d s

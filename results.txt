@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-22T02:58:28.272Z - update via queries.json
+# generated 2026-10-22T11:00:25.071Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-4NRXx6U8ABQ|The Weeknd - Blinding Lights (Official Video)|The Weeknd
+fYD7YsSRHOY|Playboi Carti & The Weeknd - RATHER LIE (Official Audio)|Playboi Carti
+bn8gP5N8hqM|The Weeknd - Cry For Me (Official Music Video)|The Weeknd
 
 == dance 2025 ==
-b4fraNb3EZk|DJ MIX 2026 - Remixes & Mashups of Popular Songs 2026   DJ Remix Club Music Disco Dance Dj Song 2025|Valentino Sirolli
-EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
+Ym8hNu4DrgI|Global Dance Music 2025 Mix 🔥 Top 50 Most Listened Dance Songs 2025 HITS MIX|Global Records
+pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
 
 == reggaeton hits ==
-bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
+mjruCkc-z6s|Luis Fonsi, Sebastian Yatra, Reik, Maluma, Becky G - Pop Latino 2021 - reggaeton mix 2021|Reggaeton Exitos
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-FZUfiW3W1KY|NEON PALM MALL (Vaporwave Mix + Video)|SPLIFF RADIOショー
+nli9sZhWgtM|5 Hours Of Smooth Weather Channel Vaporwave   Smooth Jazz|Weatherline International
 
 == synthwave mix ==
-4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
+4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
 QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers

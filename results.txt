@@ -1,21 +1,21 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-23T16:18:35.540Z - update via queries.json
+# generated 2026-10-23T20:53:48.300Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-PD-b9gfUXvI|The Very Best of The Weeknd – Fan Favorites|SonixLab
+uHs1LlKspD8|The Weeknd Playlist - Night Drive|NightDrive FM 𖣂
+zW_50Obl7gs|THE WEEKND Greatest Hits 2026 🔥   Blinding Lights, Starboy, Die For You & More   Best Songs Playlist|Oximusic
+2fDzCWNS3ig|The Weeknd - Out of Time|The Weeknd
 
 == dance 2025 ==
-lCCNQ1BjoVg|TIKTOK DANCE CHALLENGE 2025 EDITION     TIKTOK COMPILATION ✨️    #Syrvn_idk|Syrvn
-zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
-N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
+Ct6YvfFr5MU|🔥 Viral Dance Trends #5   TikTok Dance Compilation 2025|Dance Hub
+_Wg7LWQ-uZc|TIKTOK DANCE MASHUP 2025   Trending Dance Compilation - SEPTEMBER 2025   Part 1  #tiktok #dance|CHALA VIDZ
+FcSjWMtQkCs|Popular Dance Trends Compiltion - January 2025 🎉 Part 1|One Challenge
 
 == reggaeton hits ==
-bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
-OPP4WBLi2v0|Reggaeton Playlist   SUMMER VIBES   J Balvin, FloyyMenor, Karol G, Ozuna, Shakira, Nicky Jam, Feid…|HEDESIA
+bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
@@ -23,6 +23,6 @@ xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS A
 tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
 
 == synthwave mix ==
-6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
 QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers
+dgCnYsDTiXU|Cybercity - A Synthwave Mix|Odysseus
+snBcA-AqVGk|'Back To The 80's'   Cassetter Edition   Best of Synthwave And Retro Electro Music Mix|ThePrimeThanatos

@@ -1,20 +1,20 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-10-27T11:28:04.586Z - update via queries.json
+# generated 2026-10-27T17:17:27.926Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-0Suprl56Owg|The Weeknd - Thursday|The Weeknd
+DgBM12cGM-Q|THE WEEKND   Late Night Drive Playlist|Jostynsc
 
 == dance 2025 ==
 EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
-pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
-zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
+N6DW31S_oyI|Mega Hits 2025 🌱 The Best Of Vocal Deep House Music Mix 2025 🌱 Summer Music Mix 2025 #4|Helios Deep
+EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
 
 == reggaeton hits ==
-bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
+bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==

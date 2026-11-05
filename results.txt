@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-11-04T23:06:18.164Z - update via queries.json
+# generated 2026-11-05T04:47:11.655Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
+YBhL2a7CKYQ|The Weeknd - Hong Kong Ft. Faye Wong (Live in Hong Kong)|Weeknd Everyday
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
-YBhL2a7CKYQ|The Weeknd - Hong Kong Ft. Faye Wong (Live in Hong Kong)|Weeknd Everyday
 
 == dance 2025 ==
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
-zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
 EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
+r1SvaDUkzpM|How many TikTok dances do you know (2025)? #song#dancechallenge|Zehra
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
-9d1x85ePscY|Reggaeton Mix Latino Vibes 2025 🔥 J Balvin, Anuel AA, Becky G, Ozuna, Nicky Jam, Shakira, Rosalia|Tropical Bull Media
+4gmtOm0ie5o|Reggaeton Throwbacks   Daddy Yankee, Don Omar, Tego Calderon, Zion, Nicky Jam   DJ Calle|IAMLMP DJ MIXES
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
 xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
+FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
 
 == synthwave mix ==
-6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
-QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers
+6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
+E8CaKFh52CU|Ｅ Ｘ Ｏ Ｄ Ｕ Ｓ //  Synthwave - Dreamwave - Retrowave [2026 Remastered]|INEXED

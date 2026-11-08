@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-11-08T03:58:23.200Z - update via queries.json
+# generated 2026-11-08T12:38:04.547Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-YBhL2a7CKYQ|The Weeknd - Hong Kong Ft. Faye Wong (Live in Hong Kong)|Weeknd Everyday
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
+EvlfcwX8CXI|The Weeknd ~ Full Hits Songs Collection Album 2026 ~ Best Songs Playlist 2026|Novelle Music
 
 == dance 2025 ==
-zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
 EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
-hjVLiZCGUug|Popular Shuffle Dance Music Mix 2025 ~ Alan Walker MIX 2025 ⚡ Melbourne Bounce Music 2025|Fly Music
+zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 
 == reggaeton hits ==
-bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
+bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
+V-v3QHnvFWw|KAROL G , Bad Bunny, Daddy Yankee, Myke Towers, Feid, Peso Pluma 🔥 REGGAETON MIX 2026|Clásicos Latinos Music and Romantica Musica
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-tLYL_3NcJck|ＶＨＳ  １９９８． // Synthwave, Dreamwave, Vaporwave, Chillsynth|Luminescence
 xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
+WTXq7oy2XoQ|Ａｅｓｔｈｅｔｉｃ Ｄｒｅａｍｓ    A Vaporwave Journey Vol.1|Dusk88
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
-4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
+k8nHWwO1U2Q|80s Retro Synthwave MIX - Miami Vice // Royalty Free Copyright Safe Music|White Bat Audio
 QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers

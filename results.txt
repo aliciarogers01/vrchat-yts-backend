@@ -1,28 +1,28 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-11-09T14:57:09.370Z - update via queries.json
+# generated 2026-11-10T01:05:08.522Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-YQ-qToZUybM|The Weeknd, Ariana Grande - Die For You (Remix / Lyric Video)|The Weeknd
 yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
+DgBM12cGM-Q|THE WEEKND   Late Night Drive Playlist|Jostynsc
 
 == dance 2025 ==
-KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
 zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
 Ds7dfLGXHls|TOP 5 Most Popular Tiktok Mashup Challenge Dance Compilation - October 2025|One Challenge
 
 == reggaeton hits ==
-fHwbnAeJ6EA|Lo Que Pasó, Pasó|Daddy Yankee
-OHkYIy6DTw0|Luny Tunes Reggaeton Clásicos Mix   Daddy Yankee, Don Omar, Wisin Y Yandel, Tego Calderon, Zion|IAMLMP DJ MIXES
-2Jx2L-7tgkA|REGGAETON, DEMBOW, THROWBACKS (BAD BUNNY, KAROL G, DON OMAR, EL ALFA)   PLAYGRND SERIES   FLTK|PLAYGRND SERIES
+gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
+bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-WTXq7oy2XoQ|Ａｅｓｔｈｅｔｉｃ Ｄｒｅａｍｓ    A Vaporwave Journey Vol.1|Dusk88
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
+FDFqzVy2nI0|ｌａｔｅ　ｎｉｇｈｔ　ｖｉｂｅｓ //  Calm Vaporwave, Deep Ambient, Slowcore, Officewave|baby.murcielaga
 
 == synthwave mix ==
-6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
+dgCnYsDTiXU|Cybercity - A Synthwave Mix|Odysseus
 4xDzrJKXOOY|synthwave radio 🌌 beats to chill/game to|Lofi Girl
-QBEvosdra48|YEAR 2170   Chill Synthwave Mix for Deep Focus & Productivity|NowhereTravelers
+0QKQlf8r7ls|'Back To The 80's'   Marvel83' Edition   Best of Synthwave And Retro Electro Music Mix|ThePrimeThanatos

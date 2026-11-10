@@ -1,5 +1,5 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-11-10T14:10:23.587Z - update via queries.json
+# generated 2026-11-10T22:44:34.945Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
@@ -8,19 +8,19 @@ yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 M4ZoCHID9GI|The Weeknd - Call Out My Name (Official Video)|The Weeknd
 
 == dance 2025 ==
-EmHytNT3rMw|Tiktok Dance Battle Compilation - May 2025|One Challenge
-Ds7dfLGXHls|TOP 5 Most Popular Tiktok Mashup Challenge Dance Compilation - October 2025|One Challenge
 zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
+EAXYODSNE7U|Weekly Dance Compilation - December 2025 Part 4|One Challenge
+o5vxELArdA0|Remember DANCE PARTY MIX vol.1 💿 (Electro Pop, Dance, House 2000s, 2010s) Mixed by CMOCHONSUNY|CMOCHONSUNY
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
-9d1x85ePscY|Reggaeton Mix Latino Vibes 2025 🔥 J Balvin, Anuel AA, Becky G, Ozuna, Nicky Jam, Shakira, Rosalia|Tropical Bull Media
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
+FZUfiW3W1KY|NEON PALM MALL (Vaporwave Mix + Video)|SPLIFF RADIOショー
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

@@ -1,26 +1,26 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-11-13T13:48:08.060Z - update via queries.json
+# generated 2026-11-13T23:09:41.700Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
 hX9S94XsySk|The Weeknd - Hong Kong (feat. 王菲季候風) (Official Music Video)|The Weeknd
 O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-2fDzCWNS3ig|The Weeknd - Out of Time|The Weeknd
+WARyaiuDoZo|The Weeknd - Drunk In Love|Blushing Panda
 
 == dance 2025 ==
-FcSjWMtQkCs|Popular Dance Trends Compiltion - January 2025 🎉 Part 1|One Challenge
-Ct6YvfFr5MU|🔥 Viral Dance Trends #5   TikTok Dance Compilation 2025|Dance Hub
--2daJou9qwk|TIKTOK DANCE CHALLENGE 2025    #queen_9s|★ ǫᴜᴇᴇɴ ★
+Ds7dfLGXHls|TOP 5 Most Popular Tiktok Mashup Challenge Dance Compilation - October 2025|One Challenge
+zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
+9E9qDryXsp4|DJ SONG 2026 - Remixes & Mashups of Popular Songs 2026   DJ Remix Club Music Disco Dance Mix 2025 DJ|Valentino Sirolli
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
-V-v3QHnvFWw|KAROL G , Bad Bunny, Daddy Yankee, Myke Towers, Feid, Peso Pluma 🔥 REGGAETON MIX 2026|Clásicos Latinos Music and 2 more
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
 xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
-mMMo0asCzxI|1 Hour Of Smooth Weather Channel Vaporwave for Deep Work|Weatherline International
+_8edm4W-DnM|24/7 Vaporwave Radio   Only Vaporwave Tunes Live|ParmeSean
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED

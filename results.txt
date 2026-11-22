@@ -1,26 +1,26 @@
 # Hinders Nightclub - curated fallback board
-# generated 2026-11-22T13:55:53.656Z - update via queries.json
+# generated 2026-11-22T23:07:11.059Z - update via queries.json
 # format: videoId|title|channel
 
 == the weeknd ==
-O1OTWCd40bc|The Weeknd - Wicked Games (Official Video - Explicit)|The Weeknd
-uPD0QOGTmMI|The Weeknd - Die For You|The Weeknd
-9rhadTURsrw|The Weeknd’s FULL Pepsi Super Bowl LV Halftime Show|NFL
+uHs1LlKspD8|The Weeknd Playlist - Night Drive|NightDrive FM 𖣂
+DgBM12cGM-Q|THE WEEKND   Late Night Drive Playlist|Jostynsc
+yzTuBuRdAyA|The Weeknd - The Hills|The Weeknd
 
 == dance 2025 ==
-zEw3q5UeJ3c|DANCE REMIX 2026- Top Remixes of Popular Songs 2026 - DJ Nightclub Party EDM Remix Mix 2025|EDM Ocean
+KwiQAwv4oCk|Tiktok Dance Mashup 2025|Lela🫐
+iOQ2RpKpLEU|ASTRONOMIA DANCING    TUZELITY SHUFFLE CHALLENGE    TIKTOK DANCE TREND 2025|Tuzelity Shuffle Challenge
 pTGxDGOkiSk|Party songs 2025 🌈 Best dance songs 2025 ~ Songs that make you dance|Love Life Lyrics
-Elt0ZQo5bHY|Music Mix 2025   Party Club Dance 2025   Best Remixes Of Popular Songs 2025 MEGAMIX (DJ Silviu M)|Dj Silviu M Official
 
 == reggaeton hits ==
 gRrq1RNqTjM|Reggaeton Mix 2025   The Best of Reggaeton 2025 by OSOCITY|OSOCITYNATION
-qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 bHOBKpGJBok|🔥 MIX REGGAETON 2026   FIESTA LATINA HITS 💃 KAROL G, SHAKIRA, BAD BUNNY, J BALVIN, MALUMA, OZUNA,...|Reggaeton Vibes and Salsa Viva Latina
+qB1Xzo7iWbg|Reggaeton Old School Mix   Don Omar, Daddy Yankee, Tego Calderon    After Party By DJ Naydee|DJ Naydee
 
 == vaporwave ==
 ea_UOPzuyZU|ｅｎｔｅｒｉｎｇ  ｔｈｅ  ｐｌａｚａ．．． (Assorted Vaporwave Mix/Compilation #2   2+ Hours)|Ｓoｕnｄ Ｓtａtｉoｎ
-ZFHPkxq3_Fc|Vaporwave Radio 24/7 🔴 Music From an Empty Mall — Mallsoft & Chill LIVE|PURPLEMALL
-xMBcH3zawe0|AUTUMN WEATHER CHANNEL VAPORWAVE 1989 // Nostalgic Vaporwave & VHS Aesthetics|utopic.dreamer
+FZUfiW3W1KY|NEON PALM MALL (Vaporwave Mix + Video)|SPLIFF RADIOショー
+5C9WcXPqAV4|Late night Vaporwave|NIGHT ERROR夜のエラー
 
 == synthwave mix ==
 6aouLxiL4Cw|B A D L A N D S - A Synthwave Mix for Galactic Explorers   Vol. 1|INEXED
